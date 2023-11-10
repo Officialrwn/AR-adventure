@@ -1,7 +1,17 @@
-const HomePage = () => {
-	return (
-		<h1>HomePage</h1>
-	)
-}
+import { Link } from "react-router-dom";
 
-export default HomePage
+const HomePage = () => {
+  return (
+    <div>
+      <h1>Home Page</h1>
+      <nav>
+        <Link to="/">Home</Link> {/* Link to Home Page */}
+        <Link to="/map">Map</Link> {/* Link to Map Page */}
+        <Link to="/character">Character</Link> {/* Link to Character Page */}
+      </nav>
+      {/* Other content of your HomePage */}
+    </div>
+  );
+};
+
+export default HomePage;

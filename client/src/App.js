@@ -1,11 +1,18 @@
-import './App.css';
-import HomePage from './pages/HomePage'
+import "./App.css";
+import HomePage from "./pages/HomePage";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import MapPage from "./pages/MapPage";
+import { CharacterPage } from "./pages/CharacterPage";
 
 function App() {
   return (
-    <div className="App">
-			<HomePage>HELLO</HomePage>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/map" element={<MapPage />} />
+        <Route path="/character" element={<CharacterPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
