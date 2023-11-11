@@ -1,15 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ReactMapGL, { Marker } from "react-map-gl";
 import { parks } from "../../data/parks";
 import CustomMarker from "../../components/CustomMarker/CustomMarker";
 import "mapbox-gl/dist/mapbox-gl.css";
 import "./index.css";
 import { useView } from "../../contexts/ViewContext";
+import hero from '../../assets/hero.png'
 
 const MapPage = () => {
   const { setViewingQuests, setMenuOpen } = useView();
-
+  const [userLocation, setUserLocation] = useState(null);
   const [activeMarker, setActiveMarker] = useState(null);
+	
   const defaultViewPort = {
     latitude: 60.17000701866055,
     longitude: 24.93737401348124,
@@ -18,13 +20,24 @@ const MapPage = () => {
     zoom: 12,
   };
   const [viewport, setViewport] = useState(defaultViewPort);
+	useEffect(() => {
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        const { latitude, longitude } = position.coords;
+        setUserLocation({ latitude, longitude });
+      },
+      (error) => {
+        console.error('Error getting user location:', error.message);
+      }
+    );
+  }, []);
   const markers = parks;
 
   const handleOnMarkerClick = (marker) => {
     console.log(marker.title);
     const newViewPort = {
       latitude: marker.latitude,
-      longitude: marker.longitude - 0.01,
+      longitude: marker.longitude - 0.02,
       zoom: 14,
       transition: {
         duration: 5000,
@@ -54,6 +67,12 @@ const MapPage = () => {
         onViewportChange={(newViewport) => setViewport(newViewport)}
         doubleClickZoom={true}
       >
+				{userLocation && (
+          <Marker latitude={userLocation.latitude} longitude={userLocation.longitude}>
+            <img src={hero} alt="hero" style={{ width: '20px', height: '20px' }}/>
+          </Marker>
+        )}
+
         {markers.map((marker) => (
           <Marker
             key={marker.title}
