@@ -63,11 +63,11 @@ const CustomMarker = ({ isActive, marker, onClick }) => {
 	
   return (
     <div>
-      {isActive && (
+      {/* {isActive && (
         <div className="popup">
           <button onClick={async () => await handleOnClickGetDirections(marker)}>Show path</button>
         </div>
-      )}
+      )} */}
       <div
         className="custom-marker"
         style={isActive ? markerStyle : defaultStyle}
