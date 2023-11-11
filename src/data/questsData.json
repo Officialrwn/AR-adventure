@@ -15,7 +15,7 @@
       "id": "2",
       "title": "Morning movement",
       "type": "Normal",
-      "completed": 0,
+      "completed": 1,
       "description": "Complete a 20-minute morning workout routine. Include exercises like jumping jacks, squats, and high knees.",
       "reward": {
         "gold": 50,
@@ -37,7 +37,7 @@
       "id": "4",
       "title": "Stairs Sprint",
       "type": "Normal",
-      "completed": 0,
+      "completed": 1,
       "description": "Opt for the stairs instead of the elevator. Incorporate a brief stair workout at home or work each day.",
       "reward": {
         "gold": 40,
@@ -59,7 +59,7 @@
       "id": "6",
       "title": "Jump Rope Expert",
       "type": "Epic",
-      "completed": 0,
+      "completed": 1,
       "description": "Jump 2k times/day in a week.",
       "reward": {
         "gold": 200,
@@ -70,7 +70,7 @@
       "id": "7",
       "title": "Jumping Jackpot",
       "type": "Normal",
-      "completed": 0,
+      "completed": 1,
       "description": "Do as many jumping jacks as you can in 5 minutes; better defeat yourself in the past.",
       "reward": {
         "gold": 55,
@@ -158,7 +158,7 @@
       "id": "15",
       "type": "Epic",
       "title": "Active Social Hour",
-      "completed": 0,
+      "completed": 1,
       "description": "Plan a socially active evening, whether it's a group fitness class, a sports activity, or a social jog with friends.",
       "reward": {
         "gold": 120,

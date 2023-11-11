@@ -20,6 +20,10 @@ export const LocationButton = styled.button`
   &:focus {
     outline: none;
   }
+
+  &.active {
+    background-color: #f8c537;
+  }
 `;
 
 export const SubLocationButton = styled(LocationButton)`
@@ -31,6 +35,10 @@ export const SubLocationButton = styled(LocationButton)`
   &:hover {
     background-color: #8ed0ca;
   }
+
+  &.active {
+    background-color: #ff8360;
+  }
 `;
 
 export const QuestList = styled.ul`
@@ -41,7 +49,6 @@ export const QuestList = styled.ul`
 `;
 
 export const QuestListItem = styled.li`
-  background-color: #c8e6c9; // Quest item color
   color: #333;
   margin: 5px 0;
   padding: 8px 12px; // Slightly smaller than headings
@@ -52,5 +59,19 @@ export const QuestListItem = styled.li`
 
   &:hover {
     background-color: #a5d6a7;
+  }
+
+  &.completed {
+    background-color: #c8e6c9;
+    font-style: italic;
+    text-decoration: line-through;
+  }
+
+  &.normal {
+  }
+
+  &.epic {
+    color: white;
+    background-color: #bf1363;
   }
 `;

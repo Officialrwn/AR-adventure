@@ -39,7 +39,10 @@ const Quests = () => {
 
   return (
     <div className="quest-container">
-      <LocationButton onClick={() => toggleCategory("locationFree")}>
+      <LocationButton
+        onClick={() => toggleCategory("locationFree")}
+        className={selectedCategory === "locationFree" ? "active" : ""}
+      >
         Location-free Quests
       </LocationButton>
       {selectedCategory === "locationFree" && (
@@ -48,6 +51,9 @@ const Quests = () => {
             <QuestListItem
               key={quest.id}
               onClick={() => handleQuestClick(quest)}
+              className={
+                quest.completed === 1 ? "completed" : quest.type.toLowerCase()
+              }
             >
               {index + 1}. {quest.title}
             </QuestListItem>
@@ -55,7 +61,10 @@ const Quests = () => {
         </QuestList>
       )}
 
-      <LocationButton onClick={() => toggleCategory("locationBound")}>
+      <LocationButton
+        onClick={() => toggleCategory("locationBound")}
+        className={selectedCategory === "locationBound" ? "active" : ""}
+      >
         Location-bound Quests
       </LocationButton>
       {selectedCategory === "locationBound" && (
@@ -65,8 +74,9 @@ const Quests = () => {
               <div key={index}>
                 <SubLocationButton
                   onClick={() => handleLocationClick(location)}
+                  className={selectedLocation === location ? "active" : ""}
                 >
-                  {location}
+                  {index + 1}. {location}
                 </SubLocationButton>
                 {selectedLocation === location && (
                   <QuestList>
@@ -74,6 +84,11 @@ const Quests = () => {
                       <QuestListItem
                         key={questIndex}
                         onClick={() => handleQuestClick(quest)}
+                        className={
+                          quest.completed === 1
+                            ? "completed"
+                            : quest.type.toLowerCase()
+                        }
                       >
                         {questIndex + 1}. {quest.title}
                       </QuestListItem>
