@@ -1,37 +1,43 @@
 import React, { useState, useEffect } from "react";
 import ReactMapGL, { Marker } from "react-map-gl";
-import { parks } from "../../data/parks";
+import questsData from "../../data/questsData.json";
 import CustomMarker from "../../components/CustomMarker/CustomMarker";
 import "mapbox-gl/dist/mapbox-gl.css";
 import "./index.css";
 import { useView } from "../../contexts/ViewContext";
-import hero from '../../assets/hero.png'
+import hero from "../../assets/hero.png";
 
 const MapPage = () => {
   const { setViewingQuests, setMenuOpen } = useView();
   const [userLocation, setUserLocation] = useState(null);
   const [activeMarker, setActiveMarker] = useState(null);
-	
+
   const defaultViewPort = {
     latitude: 60.17000701866055,
     longitude: 24.93737401348124,
     width: "100vw",
     height: "100vh",
-    zoom: 12,
+    zoom: 13,
   };
   const [viewport, setViewport] = useState(defaultViewPort);
-	useEffect(() => {
+  useEffect(() => {
     navigator.geolocation.getCurrentPosition(
       (position) => {
         const { latitude, longitude } = position.coords;
         setUserLocation({ latitude, longitude });
       },
       (error) => {
-        console.error('Error getting user location:', error.message);
+        console.error("Error getting user location:", error.message);
       }
     );
   }, []);
-  const markers = parks;
+  const markers = Object.keys(questsData.locationBoundQuests).map((key) => {
+    return {
+      title: key,
+      latitude: parseFloat(questsData.locationBoundQuests[key].latitude),
+      longitude: parseFloat(questsData.locationBoundQuests[key].longitude),
+    };
+  });
 
   const handleOnMarkerClick = (marker) => {
     console.log(marker.title);
@@ -67,9 +73,16 @@ const MapPage = () => {
         onViewportChange={(newViewport) => setViewport(newViewport)}
         doubleClickZoom={true}
       >
-				{userLocation && (
-          <Marker latitude={userLocation.latitude} longitude={userLocation.longitude}>
-            <img src={hero} alt="hero" style={{ width: '20px', height: '20px' }}/>
+        {userLocation && (
+          <Marker
+            latitude={userLocation.latitude}
+            longitude={userLocation.longitude}
+          >
+            <img
+              src={hero}
+              alt="hero"
+              style={{ width: "20px", height: "20px" }}
+            />
           </Marker>
         )}
 
