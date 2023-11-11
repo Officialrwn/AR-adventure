@@ -1,6 +1,7 @@
 // Burger.styled.js
 import styled from "styled-components";
-export const StyledBurger = styled.button`
+
+export const StyledBurgerIcon = styled.button`
   position: absolute;
   top: 5%;
   left: 2rem;

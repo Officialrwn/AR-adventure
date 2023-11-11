@@ -7,7 +7,7 @@ import { ThemeProvider } from "styled-components";
 import { theme } from "./theme";
 import { GlobalStyles } from "./global";
 import { useRef, useState } from "react";
-import { Burger, Menu } from "./components";
+import { BurgerIcon, Menu } from "./components";
 import { useOnClickOutside } from "./hooks/useOnClickOutside";
 
 function App() {
@@ -20,7 +20,7 @@ function App() {
       <>
         <GlobalStyles />
         <div ref={node}>
-          <Burger open={open} setOpen={setOpen} />
+          <BurgerIcon open={open} setOpen={setOpen} />
           <Menu open={open} setOpen={setOpen} />
         </div>
         <BrowserRouter>
