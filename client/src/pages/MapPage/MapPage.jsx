@@ -25,16 +25,18 @@ const MapPage = () => {
     setMenuOpen(true);
 
     console.log(marker.title);
-    const newViewPort = {
-      latitude: marker.latitude,
-      longitude: marker.longitude,
+		const newViewPort = {
+			latitude: marker.latitude,
+      longitude: marker.longitude - 0.01,
       zoom: 14,
-    };
-    const prevActiveMarker =
-      activeMarker === marker.title ? null : marker.title;
-    const prevViewPort = prevActiveMarker ? newViewPort : defaultViewPort;
-    setViewport(prevViewPort);
-    setActiveMarker(prevActiveMarker);
+			transition: {
+				duration: 5000
+			}
+		}
+		const prevActiveMarker = activeMarker === marker.title ? null : marker.title;
+		const prevViewPort = prevActiveMarker ? newViewPort : defaultViewPort;
+		setViewport(prevViewPort);
+		setActiveMarker(prevActiveMarker);
   };
 
   // const mapStyle = "mapbox://styles/leighhalliday/cjufmjn1r2kic1fl9wxg7u1l4";
