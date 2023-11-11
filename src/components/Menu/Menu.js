@@ -20,7 +20,7 @@ const Menu = ({ open }) => {
         </span>
         Quests
       </div>
-      <div className="menu-item">
+      <div className="menu-item" onClick={() => setPanelView("achievements")}>
         <span role="img" aria-label="contact">
           &#x1f4e9;
         </span>

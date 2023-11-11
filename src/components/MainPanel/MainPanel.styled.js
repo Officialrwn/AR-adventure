@@ -5,7 +5,7 @@ export const StyledMainPanel = styled.nav`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  padding-top: 100px;
+  padding-top: 120px;
   padding-left: 2rem;
   padding-right: 2rem;
   background: ${({ theme }) => theme.primaryLight};

@@ -7,6 +7,7 @@ import Quests from "../Quests/Quests"; // You need to create this component
 import { StyledMainPanel } from "./MainPanel.styled";
 import { useView } from "../../contexts/ViewContext";
 import Hero from "../Hero/Hero";
+import Achievements from "../Achievements/Achievements";
 
 const MainPanel = React.forwardRef((props, ref) => {
   const { menuOpen, setMenuOpen, panelView, setPanelView } = useView();
@@ -30,6 +31,7 @@ const MainPanel = React.forwardRef((props, ref) => {
       <StyledMainPanel open={menuOpen}>
         {panelView === "quests" && <Quests />}
         {panelView === "hero" && <Hero />}
+        {panelView === "achievements" && <Achievements />}
         {panelView === "menu" && <Menu open={menuOpen} />}
       </StyledMainPanel>
     </div>
