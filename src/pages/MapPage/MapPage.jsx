@@ -97,7 +97,7 @@ const MapPage = () => {
     setViewport(prevViewPort);
     setActiveMarker(prevActiveMarker);
 
-    if (activeMarker) {
+    if (activeMarker && !prevActiveMarker) {
       setPanelView(null);
       setMenuOpen(false);
       setSelectedLocation(null);

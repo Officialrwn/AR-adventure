@@ -31,8 +31,8 @@ export const ViewProvider = ({ children }) => {
   useEffect(() => {
     if (selectedLocation) {
       setSelectedCategory("locationBound");
-      setPanelView("quests");
       setMenuOpen(true);
+      setPanelView("quests");
     }
   }, [selectedLocation]);
 
