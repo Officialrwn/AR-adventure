@@ -11,10 +11,10 @@ const QuestPopup = React.forwardRef(({ quest, onClose }, ref) => {
           <h2>{quest.title}</h2>
           <p>{quest.description}</p>
           <p>
-            <b>Difficulty:</b> {quest.difficulty}
+            <b>Difficulty:</b> {quest.type}
           </p>
           <p>
-            <b>Status:</b> {quest.completed ? "Not done" : "Done"}
+            <b>Status:</b> {quest.completed === 0 ? "Not done" : "Done"}
           </p>
           <p>
             <b>Reward:</b> {quest.reward.gold} Gold, {quest.reward.exp} EXP

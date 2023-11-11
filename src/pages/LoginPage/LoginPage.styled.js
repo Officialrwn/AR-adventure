@@ -1,15 +1,31 @@
 // LoginPage.styled.js
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+import backgroundImage from "../../assets/login-background.png";
+
+const fadeInBackground = css`
+  animation: fadeIn 2s ease-in forwards;
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+`;
 
 export const LoginPageContainer = styled.div`
   height: 100vh;
   width: 100vw;
-  background-image: url("../../assets/login-background.png");
+  background-image: url(${backgroundImage});
   background-size: cover;
   background-position: center;
   display: flex;
   align-items: center;
   justify-content: center;
+  opacity: ${(props) => (props.fadeOut ? "0" : "1")};
+  transition: opacity 2s ease-out;
 `;
 
 export const PlayButton = styled.button`

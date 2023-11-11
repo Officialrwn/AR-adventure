@@ -11,7 +11,6 @@ function App() {
       <ViewProvider>
         <>
           <GlobalStyles />
-          {/* <MainPanel /> */}
           <HomePage />
         </>
       </ViewProvider>
