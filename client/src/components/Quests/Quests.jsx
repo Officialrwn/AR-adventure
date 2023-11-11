@@ -35,7 +35,7 @@ const Quests = () => {
       {selectedCategory === "locationFree" && (
         <QuestList>
           {questsData.locationFreeQuests.map((quest, index) => (
-            <QuestListItem key={index}>{quest}</QuestListItem>
+            <QuestListItem key={quest.id}>{quest.title}</QuestListItem>
           ))}
         </QuestList>
       )}
@@ -46,7 +46,7 @@ const Quests = () => {
       {selectedCategory === "locationBound" && (
         <>
           {Object.entries(questsData.locationBoundQuests).map(
-            ([location, quests], index) => (
+            ([location, locationData], index) => (
               <div key={index}>
                 <SubLocationButton
                   onClick={() => handleLocationClick(location)}
@@ -55,8 +55,10 @@ const Quests = () => {
                 </SubLocationButton>
                 {selectedLocation === location && (
                   <QuestList>
-                    {quests.map((quest, questIndex) => (
-                      <QuestListItem key={questIndex}>{quest}</QuestListItem>
+                    {locationData.quests.map((quest, questIndex) => (
+                      <QuestListItem key={questIndex}>
+                        {quest.title}
+                      </QuestListItem>
                     ))}
                   </QuestList>
                 )}

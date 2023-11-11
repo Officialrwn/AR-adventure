@@ -1,10 +1,282 @@
 {
   "locationFreeQuests": [
-    "Find the ancient scroll",
-    "Gather 10 mystical stones"
+    {
+      "id": "1",
+      "title": "Challenge-a-Friend Fiesta",
+      "difficulty": "Epic",
+      "description": "Challenge a friend to a different fitness activity each day and compare results at the end of the week.",
+      "reward": {
+        "gold": 150,
+        "exp": 200
+      }
+    },
+    {
+      "id": "2",
+      "title": "Morning movement",
+      "difficulty": "Normal",
+      "description": "Complete a 20-minute morning workout routine. Include exercises like jumping jacks, squats, and high knees.",
+      "reward": {
+        "gold": 50,
+        "exp": 30
+      }
+    },
+    {
+      "id": "3",
+      "title": "Adventure Photographer Challenge",
+      "difficulty": "Epic",
+      "description": "Capture and share five creative exercise-related photos from different locations during the week.",
+      "reward": {
+        "gold": 180,
+        "exp": 210
+      }
+    },
+    {
+      "id": "4",
+      "title": "Stairs Sprint",
+      "difficulty": "Normal",
+      "description": "Opt for the stairs instead of the elevator. Incorporate a brief stair workout at home or work each day.",
+      "reward": {
+        "gold": 40,
+        "exp": 25
+      }
+    },
+    {
+      "id": "5",
+      "title": "Jump Rope Jamboree",
+      "difficulty": "Normal",
+      "description": "Jump rope for 15 minutes, incorporating different tricks.",
+      "reward": {
+        "gold": 60,
+        "exp": 35
+      }
+    },
+    {
+      "id": "6",
+      "title": "Jump Rope Expert",
+      "difficulty": "Epic",
+      "description": "Jump 2k times/day in a week.",
+      "reward": {
+        "gold": 200,
+        "exp": 250
+      }
+    },
+    {
+      "id": "7",
+      "title": "Jumping Jackpot",
+      "difficulty": "Normal",
+      "description": "Do as many jumping jacks as you can in 5 minutes; better defeat yourself in the past.",
+      "reward": {
+        "gold": 55,
+        "exp": 40
+      }
+    },
+    {
+      "id": "8",
+      "title": "Super Sports Spectacle",
+      "difficulty": "Epic",
+      "description": "Try a different sport or physical activity each day, from basketball to rock climbing.",
+      "reward": {
+        "gold": 220,
+        "exp": 300
+      }
+    },
+    {
+      "id": "9",
+      "title": "Office Break Revitalizer",
+      "difficulty": "Normal",
+      "description": "Incorporate short bursts of activity during work breaks. Stretch, do a quick yoga session, or take a brisk walk outside, even chair squats. desk push up.",
+      "reward": {
+        "gold": 45,
+        "exp": 20
+      }
+    },
+    {
+      "id": "10",
+      "title": "Post-Work Unwind",
+      "difficulty": "Normal",
+      "description": "Wind down after work with a 30-minute relaxation workout, such as yoga or a calming stretch routine.",
+      "reward": {
+        "gold": 65,
+        "exp": 50
+      }
+    },
+    {
+      "id": "11",
+      "title": "Commute Cardio Challenge",
+      "difficulty": "Normal",
+      "description": "Integrate exercise into your daily commute. Choose an active mode of transportation, like biking or walking, for at least part of the journey.",
+      "reward": {
+        "gold": 70,
+        "exp": 45
+      }
+    },
+    {
+      "id": "12",
+      "title": "Tech Detox Day",
+      "difficulty": "Normal",
+      "description": "Designate one day a week for a tech detox. Spend at least 60 minutes doing physical activities without electronic devices.",
+      "reward": {
+        "gold": 80,
+        "exp": 55
+      }
+    },
+    {
+      "id": "13",
+      "title": "Chores & Calisthenics Challenge",
+      "difficulty": "Normal",
+      "description": "Turn household chores into a workout. Perform squats while doing laundry or lunges while vacuuming.",
+      "reward": {
+        "gold": 90,
+        "exp": 60
+      }
+    },
+    {
+      "id": "14",
+      "type": "Normal",
+      "title": "Couch potato workout",
+      "description": "Turn TV time into a workout session. 6 minutes of different plank positions, 1 minute of wall sit, 5 minutes of bridge, 1 minute of mountain climber.",
+      "reward": {
+        "gold": 50,
+        "exp": 25
+      }
+    },
+    {
+      "id": "15",
+      "type": "Epic",
+      "title": "Active Social Hour",
+      "description": "Plan a socially active evening, whether it's a group fitness class, a sports activity, or a social jog with friends.",
+      "reward": {
+        "gold": 120,
+        "exp": 80
+      }
+    },
+    {
+      "id": "16",
+      "type": "Epic",
+      "title": "Stretching kick-off",
+      "description": "Spend 15 minutes to stretch every morning to start your day, 7 days in a row.",
+      "reward": {
+        "gold": 130,
+        "exp": 90
+      }
+    }
   ],
   "locationBoundQuests": {
-    "Enchanted Forest": ["Defeat the forest trolls", "Collect rare herbs"],
-    "Mystic Mountains": ["Seek the wise hermit", "Retrieve the crystal orb"]
+    "Kaisaniemi Park": {
+      "longitude": "24.9448299407959",
+      "latitude": "60.17535400390625",
+      "quests": [
+        {
+          "id": "21",
+          "type": "Normal",
+          "title": "Park explorer",
+          "description": "Spend 30 minutes in a nearby park, either walking or biking, and take a picture of 3 things that excites you.",
+          "reward": {
+            "gold": 60,
+            "exp": 30
+          }
+        },
+        {
+          "id": "22",
+          "type": "Normal",
+          "title": "Nature photographer",
+          "description": "Take a picture of 3 things that excites you.",
+          "reward": {
+            "gold": 65,
+            "exp": 35
+          }
+        }
+      ]
+    },
+    "Kiipeily Areena Salmisaari": {
+      "longitude": "24.90300082142789",
+      "latitude": "60.16596219405575",
+      "quests": [
+        {
+          "id": "23",
+          "type": "Epic",
+          "title": "The Boulderer",
+          "description": "Boulder alone or with your team in at least 1 hour.",
+          "reward": {
+            "gold": 150,
+            "exp": 100
+          }
+        }
+      ]
+    },
+    "Oodi Library": {
+      "longitude": "24.937833269303066",
+      "latitude": "60.173824709727626",
+      "quests": [
+        {
+          "id": "24",
+          "type": "Normal",
+          "title": "Library finder",
+          "description": "Count how many rooms it has over there (don’t google)",
+          "reward": {
+            "gold": 50,
+            "exp": 25
+          }
+        }
+      ]
+    },
+    "Urheiluhallit Töölö": {
+      "longitude": "24.911660513487767",
+      "latitude": "60.190001372885234",
+      "quests": [
+        {
+          "id": "25",
+          "type": "Normal",
+          "title": "Swim Streak Splash",
+          "description": "Swim 2km distance or complete 10 laps in the pool.",
+          "reward": {
+            "gold": 70,
+            "exp": 40
+          }
+        },
+        {
+          "id": "26",
+          "type": "Epic",
+          "title": "Swim Streak Splash",
+          "description": "Swim 5km distance or complete 25 laps in the pool.",
+          "reward": {
+            "gold": 200,
+            "exp": 150
+          }
+        }
+      ]
+    },
+    "Hakaniemen Kauppahalli": {
+      "longitude": "24.951226749989722",
+      "latitude": "60.17916212866111",
+      "quests": [
+        {
+          "id": "27",
+          "type": "Normal",
+          "title": "Meat or Meet",
+          "description": "Can you recognize how many stores are there in the hall?",
+          "reward": {
+            "gold": 80,
+            "exp": 50
+          }
+        }
+      ]
+    },
+    "Esplanadi park": {
+      "longitude": "24.94766314417246",
+      "latitude": "60.16764428526916",
+      "quests": [
+        {
+          "id": "28",
+          "type": "Normal",
+          "title": "Mindfulness",
+          "description": "Take 3 laps around the park and think about your dinner.",
+          "reward": {
+            "gold": 90,
+            "exp": 60
+          }
+        }
+      ]
+    }
   }
 }
