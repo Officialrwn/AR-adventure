@@ -30,6 +30,8 @@ const MapPage = () => {
   } = useView();
   const mainPanelRef = useRef(null);
   const markerRefs = useRef([]);
+  const popupRef = useRef(null);
+
   const defaultUserLocation = {
     latitude: 60.16213071353617,
     longitude: 24.905526255182103,
@@ -64,7 +66,7 @@ const MapPage = () => {
   }, [markers]);
 
   // Combine refs
-  const allRefs = [mainPanelRef, ...markerRefs.current];
+  const allRefs = [popupRef, mainPanelRef, ...markerRefs.current];
 
   useOnClickOutside(allRefs, () => {
     console.log("Clicked outside of MainPanel and markers");
@@ -108,6 +110,7 @@ const MapPage = () => {
     <>
       {isPopupVisible && (
         <QuestPopup
+          ref={popupRef}
           quest={selectedQuest}
           onClose={() => setIsPopupVisible(false)}
         />
