@@ -18,7 +18,9 @@ const MapPage = () => {
 
   const handleOnMarkerClick = (marker) => {
     console.log(marker.title);
-		setActiveMarker(marker.title);
+		setActiveMarker((prevActiveMarker) =>
+			prevActiveMarker === marker.title ? null : marker.title
+		);
   };
 
   // const mapStyle = "mapbox://styles/leighhalliday/cjufmjn1r2kic1fl9wxg7u1l4";
