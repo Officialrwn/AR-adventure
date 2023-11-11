@@ -17,6 +17,7 @@ export const ViewProvider = ({ children }) => {
   const [selectedLocation, setSelectedLocation] = useState(null);
   const [activeMarker, setActiveMarker] = useState(null);
   const [viewport, setViewport] = useState(defaultViewPort);
+	const [userLocation, setUserLocation] = useState(null);
 
   const resetQuestsView = () => {
     setSelectedCategory(null);
@@ -46,6 +47,8 @@ export const ViewProvider = ({ children }) => {
     viewport,
     setViewport,
     resetQuestsView,
+		userLocation,
+		setUserLocation
   };
 
   return <ViewContext.Provider value={value}>{children}</ViewContext.Provider>;
