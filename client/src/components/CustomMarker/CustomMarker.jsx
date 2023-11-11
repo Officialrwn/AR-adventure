@@ -5,7 +5,7 @@ import axios from 'axios';
 import { useView } from "../../contexts/ViewContext";
 
 const CustomMarker = ({ isActive, marker, onClick }) => {
-	const {	userLocation } = useView();
+	const {	userLocation, setRoute } = useView();
 	
   const iconStyle = {
     width: "20px",
@@ -55,7 +55,10 @@ const CustomMarker = ({ isActive, marker, onClick }) => {
 
 		if (directions && directions.routes && directions.routes.length > 0) {
 			const route = directions.routes[0].geometry.coordinates;
+	
+			// Update state with the route
 			setRoute(route);
+		}
 	}
 	
   return (

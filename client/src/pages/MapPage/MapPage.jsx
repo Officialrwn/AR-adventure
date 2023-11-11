@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import ReactMapGL, { Marker } from "react-map-gl";
 import questsData from "../../data/questsData.json";
 import CustomMarker from "../../components/CustomMarker/CustomMarker";
@@ -21,7 +21,8 @@ const MapPage = () => {
     defaultViewPort,
     resetQuestsView,
 		userLocation,
-		setUserLocation
+		setUserLocation,
+		route
   } = useView();
   const mainPanelRef = useRef(null);
   const markerRefs = useRef([]);
