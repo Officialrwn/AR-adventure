@@ -7,10 +7,15 @@ import {
   QuestList,
   QuestListItem,
 } from "./Quests.styled";
+import { useView } from "../../contexts/ViewContext";
 
 const Quests = () => {
-  const [selectedCategory, setSelectedCategory] = useState(null);
-  const [selectedLocation, setSelectedLocation] = useState(null);
+  const {
+    selectedCategory,
+    setSelectedCategory,
+    selectedLocation,
+    setSelectedLocation,
+  } = useView();
 
   const toggleCategory = (category) => {
     setSelectedCategory(selectedCategory === category ? null : category);
