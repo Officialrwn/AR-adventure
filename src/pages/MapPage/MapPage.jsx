@@ -100,6 +100,7 @@ const MapPage = () => {
     if (activeMarker) {
       setViewingQuests(false);
       setMenuOpen(false);
+      setSelectedLocation(null);
     }
   };
 
