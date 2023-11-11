@@ -4,10 +4,12 @@ import styled from "styled-components";
 export const StyledMainPanel = styled.nav`
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
+  padding-top: 100px;
+  padding-left: 2rem;
+  padding-right: 2rem;
   background: ${({ theme }) => theme.primaryLight};
   text-align: left;
-  padding: 2rem;
   position: absolute;
   top: 0;
   left: 0;

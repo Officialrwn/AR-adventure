@@ -28,7 +28,7 @@ const Quests = () => {
   };
 
   return (
-    <div>
+    <div class="quest-container">
       <LocationButton onClick={() => toggleCategory("locationFree")}>
         Location-free Quests
       </LocationButton>
