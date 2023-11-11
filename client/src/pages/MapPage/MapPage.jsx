@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import './index.css';
 import ReactMapGL, { Marker, Popup } from 'react-map-gl';
-import 'mapbox-gl/dist/mapbox-gl.css';
-import CustomMarker from '../../components/CustomMarker/CustomMarker';
 import { parks } from '../../data/parks';
+import CustomMarker from '../../components/CustomMarker/CustomMarker';
+import 'mapbox-gl/dist/mapbox-gl.css';
+import './index.css';
 
 const MapPage = () => {
   const [hoveredMarker, setHoveredMarker] = useState(null);
@@ -41,7 +41,7 @@ const MapPage = () => {
             offsetLeft={-20}
             offsetTop={-10}
           >
-            <CustomMarker onClick={() => handleOnMarkerClick(marker)} />
+            <CustomMarker title={marker.title} onClick={() => handleOnMarkerClick(marker)} />
           </Marker>
         ))}
         {hoveredMarker && (
@@ -49,7 +49,6 @@ const MapPage = () => {
             latitude={hoveredMarker.latitude}
             longitude={hoveredMarker.longitude}
             onClose={() => setHoveredMarker(null)}
-						style={{ zIndex: 1000 }}
           >
             <div>{hoveredMarker.title}</div>
           </Popup>

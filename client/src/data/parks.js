@@ -10,27 +10,27 @@ export const parks = [
 		"longitude": 24.94262029271
 	},
 	{
-		"title": "Vänämöinens idrottspark",
+		"title": "Vänämöinen",
 		"latitude": 60.17491410482074,
 		"longitude": 24.91601277979952
 	},
 	{
-		"title": "Gamla kyrkoparken",
+		"title": "Gamla kyrko",
 		"latitude": 60.16731472230518,
 		"longitude": 24.939187065237682
 	},
 	{
-		"title": "Sinebrychoff parken",
+		"title": "Sinebrychoff",
 		"latitude": 60.16227596039886,
 		"longitude": 24.93163396479858
 	},
 	{
-		"title": "Observatorieberget",
+		"title": "Observatorie",
 		"latitude": 60.16355707480832,
 		"longitude": 24.951203361390803
 	},
 	{
-		"title": "Brunnsparken",
+		"title": "Brunns",
 		"latitude": 60.15783437710006,
 		"longitude": 24.957039848093746
 	},
