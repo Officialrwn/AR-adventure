@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import ReactMapGL, { Marker } from "react-map-gl";
+import ReactMapGL, { Marker, Source, Layer } from "react-map-gl";
 import questsData from "../../data/questsData.json";
 import CustomMarker from "../../components/CustomMarker/CustomMarker";
 import "mapbox-gl/dist/mapbox-gl.css";
@@ -23,6 +23,7 @@ const MapPage = () => {
     userLocation,
     setUserLocation,
     route,
+		setRoute,
   } = useView();
   const mainPanelRef = useRef(null);
   const markerRefs = useRef([]);
@@ -92,6 +93,7 @@ const MapPage = () => {
     setActiveMarker(prevActiveMarker);
 
     if (activeMarker) {
+			setRoute([])
       setViewingQuests(false);
       setMenuOpen(false);
     }
@@ -141,6 +143,16 @@ const MapPage = () => {
               </div>
             </Marker>
           ))}
+					{route.length > 0 && (
+					<Source id="route" type="geojson" data={{ type: 'Feature', properties: {}, geometry: { type: 'LineString', coordinates: route } }}>
+						<Layer
+							id="route"
+							type="line"
+							layout={{ 'line-join': 'round', 'line-cap': 'round' }}
+							paint={{ 'line-color': '#888', 'line-width': 8 }}
+						/>
+					</Source>
+          )}
         </ReactMapGL>
       </div>
     </>

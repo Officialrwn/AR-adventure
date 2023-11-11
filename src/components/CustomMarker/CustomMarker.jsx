@@ -3,6 +3,7 @@ import icon from "../../assets/questicon.png";
 import "./index.css";
 import axios from 'axios';
 import { useView } from "../../contexts/ViewContext";
+import polyline from '@mapbox/polyline';
 
 const CustomMarker = ({ isActive, marker, onClick }) => {
 	const {	userLocation, setRoute } = useView();
@@ -42,7 +43,7 @@ const CustomMarker = ({ isActive, marker, onClick }) => {
 		const apiUrl = `https://api.mapbox.com/directions/v5/mapbox/walking/${start};${end}?access_token=${accessToken}`;
 		try {
 			const response = await axios.get(apiUrl);
-			console.log(response.data);
+			// console.log(response.data);
 			return response.data;
 		} catch (error) {
 			console.error('Error fetching directions:', error.message);
@@ -52,12 +53,16 @@ const CustomMarker = ({ isActive, marker, onClick }) => {
 	
 	const handleOnClickGetDirections = async (marker) => {
 		const directions = await getDirections(marker);
-
+		console.log("directions:", directions);
 		if (directions && directions.routes && directions.routes.length > 0) {
-			const route = directions.routes[0].geometry.coordinates;
-	
+			const route = polyline.decode(directions.routes[0].geometry);
+			const coordinates = route.map((coord) => ({
+				latitude: coord[0],
+				longitude: coord[1]
+			}));
 			// Update state with the route
-			setRoute(route);
+			console.log("routes", coordinates[0]);
+			setRoute(coordinates);
 		}
 	}
 	

@@ -18,7 +18,7 @@ export const ViewProvider = ({ children }) => {
   const [activeMarker, setActiveMarker] = useState(null);
   const [viewport, setViewport] = useState(defaultViewPort);
 	const [userLocation, setUserLocation] = useState(null);
-	const [route, setRoute] = useState(null);
+	const [route, setRoute] = useState([]);
 	
   const resetQuestsView = () => {
     setSelectedCategory(null);
