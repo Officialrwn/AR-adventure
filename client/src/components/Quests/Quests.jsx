@@ -1,5 +1,6 @@
 // Quests.jsx
 import React from "react";
+import { QuestsContainer, QuestItem } from "./Quests.styled"; // Adjust the import path as needed
 
 const Quests = () => {
   const dailyQuests = [
@@ -7,18 +8,16 @@ const Quests = () => {
     "Defeat the shadow dragon",
     "Explore the forgotten dungeon",
     "Craft a potion of healing",
-    // Add more quests as needed
+    // ...more quests
   ];
 
   return (
-    <div>
+    <QuestsContainer>
       <h2>Daily Quests</h2>
-      <ul>
-        {dailyQuests.map((quest, index) => (
-          <li key={index}>{quest}</li>
-        ))}
-      </ul>
-    </div>
+      {dailyQuests.map((quest, index) => (
+        <QuestItem key={index}>{quest}</QuestItem>
+      ))}
+    </QuestsContainer>
   );
 };
 
