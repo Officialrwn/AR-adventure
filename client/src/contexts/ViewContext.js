@@ -9,6 +9,11 @@ export const ViewProvider = ({ children }) => {
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [selectedLocation, setSelectedLocation] = useState(null);
 
+  const resetQuestsView = () => {
+    setSelectedCategory(null);
+    setSelectedLocation(null);
+  };
+
   const value = {
     menuOpen,
     setMenuOpen,
@@ -18,6 +23,7 @@ export const ViewProvider = ({ children }) => {
     setSelectedCategory,
     selectedLocation,
     setSelectedLocation,
+    resetQuestsView,
   };
 
   return <ViewContext.Provider value={value}>{children}</ViewContext.Provider>;

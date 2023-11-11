@@ -9,13 +9,20 @@ import { StyledMainPanel } from "./MainPanel.styled";
 import { useView } from "../../contexts/ViewContext";
 
 const MainPanel = () => {
-  const { menuOpen, setMenuOpen, viewingQuests, setViewingQuests } = useView();
+  const {
+    menuOpen,
+    setMenuOpen,
+    viewingQuests,
+    setViewingQuests,
+    resetQuestsView,
+  } = useView();
 
   const node = useRef();
 
   useOnClickOutside(node, () => {
     setMenuOpen(false);
     setViewingQuests(false);
+    resetQuestsView();
   });
 
   const handleQuestClick = () => {
