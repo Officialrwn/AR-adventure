@@ -8,9 +8,15 @@ import { useView } from "../../contexts/ViewContext";
 import hero from "../../assets/hero.png";
 
 const MapPage = () => {
-  const { setViewingQuests, setMenuOpen } = useView();
+  const {
+    setViewingQuests,
+    setMenuOpen,
+    activeMarker,
+    setActiveMarker,
+    viewport,
+    setViewport,
+  } = useView();
   const [userLocation, setUserLocation] = useState(null);
-  const [activeMarker, setActiveMarker] = useState(null);
 
   const defaultViewPort = {
     latitude: 60.17000701866055,
@@ -19,7 +25,7 @@ const MapPage = () => {
     height: "100vh",
     zoom: 13,
   };
-  const [viewport, setViewport] = useState(defaultViewPort);
+
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(
       (position) => {
@@ -31,6 +37,7 @@ const MapPage = () => {
       }
     );
   }, []);
+
   const markers = Object.keys(questsData.locationBoundQuests).map((key) => {
     return {
       title: key,
@@ -41,6 +48,7 @@ const MapPage = () => {
 
   const handleOnMarkerClick = (marker) => {
     console.log(marker.title);
+
     const newViewPort = {
       latitude: marker.latitude,
       longitude: marker.longitude - 0.02,
@@ -49,9 +57,11 @@ const MapPage = () => {
         duration: 5000,
       },
     };
+
     const prevActiveMarker =
       activeMarker === marker.title ? null : marker.title;
     const prevViewPort = prevActiveMarker ? newViewPort : defaultViewPort;
+
     setViewport(prevViewPort);
     setActiveMarker(prevActiveMarker);
 

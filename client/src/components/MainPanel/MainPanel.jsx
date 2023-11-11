@@ -10,19 +10,24 @@ import { useView } from "../../contexts/ViewContext";
 
 const MainPanel = () => {
   const {
+    defaultViewPort,
     menuOpen,
     setMenuOpen,
     viewingQuests,
     setViewingQuests,
+    setActiveMarker,
+    setViewport,
     resetQuestsView,
   } = useView();
 
   const node = useRef();
 
   useOnClickOutside(node, () => {
+    setViewport(defaultViewPort);
     setMenuOpen(false);
     setViewingQuests(false);
     resetQuestsView();
+    setActiveMarker(null);
   });
 
   const handleQuestClick = () => {
