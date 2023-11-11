@@ -12,9 +12,10 @@ export const LocationButton = styled.button`
   text-align: left;
   width: 100%;
   overflow: auto;
+  background-color: #f8c537;
 
   &:hover {
-    background-color: #f8c537;
+    background-color: #f3b509;
   }
 
   &:focus {
@@ -58,7 +59,7 @@ export const QuestListItem = styled.li`
   cursor: pointer;
 
   &:hover {
-    background-color: #a5d6a7;
+    background-color: #d1e5fc;
   }
 
   &.completed {
@@ -67,11 +68,19 @@ export const QuestListItem = styled.li`
     text-decoration: line-through;
   }
 
+  &.completed:hover {
+    background-color: #a5d6a7;
+  }
+
   &.normal {
   }
 
   &.epic {
     color: white;
     background-color: #bf1363;
+  }
+
+  &.epic:hover {
+    background-color: #e81d7b;
   }
 `;

@@ -16,13 +16,13 @@ const Menu = ({ open }) => {
       </div>
       <div className="menu-item" onClick={() => setPanelView("quests")}>
         <span role="img" aria-label="price">
-          &#x1f4b8;
+          &#128214;
         </span>
         Quests
       </div>
       <div className="menu-item" onClick={() => setPanelView("achievements")}>
         <span role="img" aria-label="contact">
-          &#x1f4e9;
+          &#127942;
         </span>
         Achievements
       </div>

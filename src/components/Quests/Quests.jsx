@@ -43,7 +43,7 @@ const Quests = () => {
         onClick={() => toggleCategory("locationFree")}
         className={selectedCategory === "locationFree" ? "active" : ""}
       >
-        Location-free Quests
+        &#x2693; Location-free Quests
       </LocationButton>
       {selectedCategory === "locationFree" && (
         <QuestList>
@@ -65,7 +65,7 @@ const Quests = () => {
         onClick={() => toggleCategory("locationBound")}
         className={selectedCategory === "locationBound" ? "active" : ""}
       >
-        Location-bound Quests
+        &#x1F30D; Location-bound Quests
       </LocationButton>
       {selectedCategory === "locationBound" && (
         <>

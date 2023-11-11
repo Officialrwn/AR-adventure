@@ -12,6 +12,7 @@ export const StyledMenu = styled.div`
     cursor: pointer;
     text-decoration: none;
     transition: color 0.3s linear;
+    padding-left: 1rem;
 
     @media (max-width: ${({ theme }) => theme.mobile}) {
       font-size: 1.5rem;
@@ -20,6 +21,7 @@ export const StyledMenu = styled.div`
 
     &:hover {
       color: ${({ theme }) => theme.primaryHover};
+      background-color: #f3b509;
     }
   }
 `;
