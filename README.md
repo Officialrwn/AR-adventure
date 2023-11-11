@@ -16,7 +16,7 @@ Check out the live demo [here](https://teamx-ar-adventure.ngrok.app/).
 ## Installation
 1. Clone the repository.
 2. Run `npm install` to install dependencies.
-3. Create a `.env` file and add your Mapbox token as `REACT_APP_MAPBOX_TOKEN=your_mapbox_token_here`.
+3. Create a `.env` file and add your Mapbox token as `REACT_APP_MAPBOX_API_KEY=your_mapbox_token_here`.
 4. Start the app with `npm run start`.
 
 ## Usage
