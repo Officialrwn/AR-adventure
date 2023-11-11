@@ -14,6 +14,7 @@ const MapPage = () => {
     activeMarker,
     setActiveMarker,
     viewport,
+    setSelectedLocation,
     setViewport,
   } = useView();
   const [userLocation, setUserLocation] = useState(null);
@@ -48,6 +49,8 @@ const MapPage = () => {
 
   const handleOnMarkerClick = (marker) => {
     console.log(marker.title);
+
+    setSelectedLocation(marker.title);
 
     const newViewPort = {
       latitude: marker.latitude,

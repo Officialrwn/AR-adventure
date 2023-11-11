@@ -1,6 +1,4 @@
 import "./App.css";
-import HomePage from "./pages/HomePage";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 import MapPage from "./pages/MapPage/MapPage";
 import { ThemeProvider } from "styled-components";
 import { theme } from "./theme";
@@ -15,12 +13,7 @@ function App() {
         <>
           <GlobalStyles />
           <MainPanel />
-          <BrowserRouter>
-            <Routes>
-              <Route path="/" element={<MapPage />} />
-              <Route path="/home" element={<HomePage />} />
-            </Routes>
-          </BrowserRouter>
+          <MapPage />
         </>
       </ViewProvider>
     </ThemeProvider>

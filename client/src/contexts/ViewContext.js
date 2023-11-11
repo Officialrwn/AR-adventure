@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 const ViewContext = createContext();
 export const useView = () => useContext(ViewContext);
@@ -23,6 +23,14 @@ export const ViewProvider = ({ children }) => {
     setSelectedLocation(null);
   };
 
+  useEffect(() => {
+    if (selectedLocation) {
+      setSelectedCategory("locationBound");
+      setViewingQuests(true);
+      setMenuOpen(true);
+    }
+  }, [selectedLocation]);
+
   const value = {
     defaultViewPort,
     menuOpen,
@@ -33,9 +41,10 @@ export const ViewProvider = ({ children }) => {
     setSelectedCategory,
     selectedLocation,
     setSelectedLocation,
-    activeMarker, 
+    activeMarker,
     setActiveMarker,
-    viewport, setViewport,
+    viewport,
+    setViewport,
     resetQuestsView,
   };
 
