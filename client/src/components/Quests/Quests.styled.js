@@ -11,9 +11,10 @@ export const LocationButton = styled.button`
   font-size: 1.4rem; // Larger font for main headings
   text-align: left;
   width: 100%;
+  overflow: auto;
 
   &:hover {
-    background-color: ${({ theme }) => theme.primaryHover};
+    background-color: #f8c537;
   }
 
   &:focus {
@@ -25,12 +26,18 @@ export const SubLocationButton = styled(LocationButton)`
   background-color: #b2dfdb; // Different color for subheadings
   font-size: 1.2rem; // Smaller than main headings
   padding: 10px 15px; // Smaller padding than main headings
+  cursor: pointer;
+
+  &:hover {
+    background-color: #8ed0ca;
+  }
 `;
 
 export const QuestList = styled.ul`
   list-style-type: none;
   padding: 0;
   margin: 10px 0;
+  cursor: pointer;
 `;
 
 export const QuestListItem = styled.li`
@@ -41,6 +48,7 @@ export const QuestListItem = styled.li`
   border-radius: 4px;
   transition: background-color 0.3s ease;
   font-size: 1rem; // Smaller font for quests
+  cursor: pointer;
 
   &:hover {
     background-color: #a5d6a7;

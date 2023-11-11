@@ -35,7 +35,9 @@ const Quests = () => {
       {selectedCategory === "locationFree" && (
         <QuestList>
           {questsData.locationFreeQuests.map((quest, index) => (
-            <QuestListItem key={quest.id}>{quest.title}</QuestListItem>
+            <QuestListItem key={quest.id}>
+              {index + 1}. {quest.title}
+            </QuestListItem>
           ))}
         </QuestList>
       )}
@@ -57,7 +59,7 @@ const Quests = () => {
                   <QuestList>
                     {locationData.quests.map((quest, questIndex) => (
                       <QuestListItem key={questIndex}>
-                        {quest.title}
+                        {questIndex + 1}. {quest.title}
                       </QuestListItem>
                     ))}
                   </QuestList>

@@ -15,7 +15,9 @@ export const StyledMainPanel = styled.nav`
   left: 0;
   z-index: 9;
   height: 100vh;
+  max-height: 100vh;
   width: 500px;
+  overflow-y: auto;
   transition: transform 0.3s ease-in-out;
   transform: ${({ open }) => (open ? "translateX(0)" : "translateX(-100%)")};
 
