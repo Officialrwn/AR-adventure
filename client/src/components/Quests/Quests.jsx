@@ -1,35 +1,32 @@
 // Quests.jsx
 import React, { useState } from "react";
-import questsData from "../../data/questsData.json"; // Adjust the import path
-import { LocationButton, QuestList, QuestListItem } from "./Quests.styled";
+import questsData from "../../data/questsData.json"; // Ensure correct path
+import {
+  LocationButton,
+  SubLocationButton,
+  QuestList,
+  QuestListItem,
+} from "./Quests.styled";
 
 const Quests = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [selectedLocation, setSelectedLocation] = useState(null);
 
-  const handleCategoryClick = (category) => {
-    setSelectedCategory(category);
-    // Reset location selection when switching categories
+  const toggleCategory = (category) => {
+    setSelectedCategory(selectedCategory === category ? null : category);
+    // Reset selectedLocation when switching categories or re-toggling the same category
     setSelectedLocation(null);
   };
 
-  const toggleLocation = (location) => {
+  const handleLocationClick = (location) => {
     setSelectedLocation(selectedLocation === location ? null : location);
   };
 
   return (
     <div>
-      {!selectedCategory && (
-        <>
-          <LocationButton onClick={() => handleCategoryClick("locationFree")}>
-            Location-free Quests
-          </LocationButton>
-          <LocationButton onClick={() => handleCategoryClick("locationBound")}>
-            Location-bound Quests
-          </LocationButton>
-        </>
-      )}
-
+      <LocationButton onClick={() => toggleCategory("locationFree")}>
+        Location-free Quests
+      </LocationButton>
       {selectedCategory === "locationFree" && (
         <QuestList>
           {questsData.locationFreeQuests.map((quest, index) => (
@@ -38,23 +35,31 @@ const Quests = () => {
         </QuestList>
       )}
 
-      {selectedCategory === "locationBound" &&
-        Object.entries(questsData.locationBoundQuests).map(
-          ([location, quests], index) => (
-            <div key={index}>
-              <LocationButton onClick={() => toggleLocation(location)}>
-                {location}
-              </LocationButton>
-              {selectedLocation === location && (
-                <QuestList>
-                  {quests.map((quest, questIndex) => (
-                    <QuestListItem key={questIndex}>{quest}</QuestListItem>
-                  ))}
-                </QuestList>
-              )}
-            </div>
-          )
-        )}
+      <LocationButton onClick={() => toggleCategory("locationBound")}>
+        Location-bound Quests
+      </LocationButton>
+      {selectedCategory === "locationBound" && (
+        <>
+          {Object.entries(questsData.locationBoundQuests).map(
+            ([location, quests], index) => (
+              <div key={index}>
+                <SubLocationButton
+                  onClick={() => handleLocationClick(location)}
+                >
+                  {location}
+                </SubLocationButton>
+                {selectedLocation === location && (
+                  <QuestList>
+                    {quests.map((quest, questIndex) => (
+                      <QuestListItem key={questIndex}>{quest}</QuestListItem>
+                    ))}
+                  </QuestList>
+                )}
+              </div>
+            )
+          )}
+        </>
+      )}
     </div>
   );
 };
