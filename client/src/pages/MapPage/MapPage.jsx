@@ -7,7 +7,6 @@ import './index.css';
 
 const MapPage = () => {
 	const [activeMarker, setActiveMarker] = useState(null);
-  const [hoveredMarker, setHoveredMarker] = useState(null);
   const [viewport, setViewport] = useState({
     latitude: 60.17000701866055,
     longitude: 24.93737401348124,
@@ -19,7 +18,6 @@ const MapPage = () => {
 
   const handleOnMarkerClick = (marker) => {
     console.log(marker.title);
-    setHoveredMarker(marker);
 		setActiveMarker(marker.title);
   };
 
@@ -46,15 +44,6 @@ const MapPage = () => {
             <CustomMarker isActive={activeMarker === marker.title} title={marker.title} onClick={() => handleOnMarkerClick(marker)} />
           </Marker>
         ))}
-        {hoveredMarker && (
-          <Popup
-            latitude={hoveredMarker.latitude}
-            longitude={hoveredMarker.longitude}
-            onClose={() => setHoveredMarker(null)}
-          >
-            <div>{hoveredMarker.title}</div>
-          </Popup>
-        )}
       </ReactMapGL>
     </div>
   );
