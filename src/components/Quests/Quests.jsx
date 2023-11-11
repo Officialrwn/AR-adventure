@@ -15,7 +15,14 @@ const Quests = () => {
     setSelectedCategory,
     selectedLocation,
     setSelectedLocation,
+    setSelectedQuest,
+    setIsPopupVisible,
   } = useView();
+
+  const handleQuestClick = (quest) => {
+    setSelectedQuest(quest);
+    setIsPopupVisible(true);
+  };
 
   const toggleCategory = (category) => {
     setSelectedCategory(selectedCategory === category ? null : category);
@@ -35,7 +42,10 @@ const Quests = () => {
       {selectedCategory === "locationFree" && (
         <QuestList>
           {questsData.locationFreeQuests.map((quest, index) => (
-            <QuestListItem key={quest.id}>
+            <QuestListItem
+              key={quest.id}
+              onClick={() => handleQuestClick(quest)}
+            >
               {index + 1}. {quest.title}
             </QuestListItem>
           ))}
@@ -58,7 +68,10 @@ const Quests = () => {
                 {selectedLocation === location && (
                   <QuestList>
                     {locationData.quests.map((quest, questIndex) => (
-                      <QuestListItem key={questIndex}>
+                      <QuestListItem
+                        key={questIndex}
+                        onClick={() => handleQuestClick(quest)}
+                      >
                         {questIndex + 1}. {quest.title}
                       </QuestListItem>
                     ))}
