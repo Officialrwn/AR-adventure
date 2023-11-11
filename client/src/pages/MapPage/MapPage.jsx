@@ -21,8 +21,11 @@ const MapPage = () => {
     console.log(marker.title);
 		const newViewPort = {
 			latitude: marker.latitude,
-      longitude: marker.longitude,
+      longitude: marker.longitude - 0.01,
       zoom: 14,
+			transition: {
+				duration: 5000
+			}
 		}
 		const prevActiveMarker = activeMarker === marker.title ? null : marker.title;
 		const prevViewPort = prevActiveMarker ? newViewPort : defaultViewPort;
