@@ -2,7 +2,7 @@ import React from "react";
 import { bool } from "prop-types";
 import { StyledMenu } from "./Menu.styled";
 
-const Menu = ({ open }) => {
+const Menu = ({ open, onQuestClick }) => {
   return (
     <StyledMenu open={open}>
       <div className="menu-item">
@@ -11,7 +11,7 @@ const Menu = ({ open }) => {
         </span>
         Hero
       </div>
-      <div className="menu-item">
+      <div className="menu-item" onClick={onQuestClick}>
         <span role="img" aria-label="price">
           &#x1f4b8;
         </span>
