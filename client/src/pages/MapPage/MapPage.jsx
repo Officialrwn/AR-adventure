@@ -6,6 +6,7 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 import './index.css';
 
 const MapPage = () => {
+	const [activeMarker, setActiveMarker] = useState(null);
   const [hoveredMarker, setHoveredMarker] = useState(null);
   const [viewport, setViewport] = useState({
     latitude: 60.17000701866055,
@@ -19,6 +20,7 @@ const MapPage = () => {
   const handleOnMarkerClick = (marker) => {
     console.log(marker.title);
     setHoveredMarker(marker);
+		setActiveMarker(marker.title);
   };
 
   // const mapStyle = "mapbox://styles/leighhalliday/cjufmjn1r2kic1fl9wxg7u1l4";
@@ -41,7 +43,7 @@ const MapPage = () => {
             offsetLeft={-20}
             offsetTop={-10}
           >
-            <CustomMarker title={marker.title} onClick={() => handleOnMarkerClick(marker)} />
+            <CustomMarker isActive={activeMarker === marker.title} title={marker.title} onClick={() => handleOnMarkerClick(marker)} />
           </Marker>
         ))}
         {hoveredMarker && (
