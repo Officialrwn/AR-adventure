@@ -1,10 +1,9 @@
 // MainPanel.jsx
-import React, { useRef, useState } from "react";
+import React from "react";
 import BurgerIcon from "../BurgerIcon/BurgerIcon";
 import BackIcon from "../BackIcon/BackIcon"; // You need to create this component
 import Menu from "../Menu/Menu";
 import Quests from "../Quests/Quests"; // You need to create this component
-import { useOnClickOutside } from "../../hooks/useOnClickOutside";
 import { StyledMainPanel } from "./MainPanel.styled";
 import { useView } from "../../contexts/ViewContext";
 
