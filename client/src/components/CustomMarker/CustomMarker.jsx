@@ -1,8 +1,12 @@
 import React from "react";
 import icon from "../../assets/questicon.png";
 import "./index.css";
+import axios from 'axios';
+import { useView } from "../../contexts/ViewContext";
 
-const CustomMarker = ({ isActive, title, onClick }) => {
+const CustomMarker = ({ isActive, marker, onClick }) => {
+	const {	userLocation } = useView();
+	
   const iconStyle = {
     width: "20px",
     height: "20px",
@@ -26,24 +30,48 @@ const CustomMarker = ({ isActive, title, onClick }) => {
     textShadow: "2px 0 0 #000000", // Added white text shadow for visibility
   };
 
-	const getDirections = () => {
-		console.log("path");
+	const getDirections = async (marker) => {
+		const accessToken = process.env.REACT_APP_MAPBOX_API_KEY;
+		if (!userLocation) {
+			console.log("ERROR", userLocation, marker);
+			return null;
+		}
+		const user = userLocation ?? "60.16213071353617, 24.905526255182103"
+		const start = `${user.latitude}, ${user.longitude}`;
+		const end = `${marker.latitude}, ${marker.longitude}`;
+		const apiUrl = `https://api.mapbox.com/directions/v5/mapbox/walking/${start};${end}?access_token=${accessToken}`;
+		try {
+			const response = await axios.get(apiUrl);
+			console.log(response.data);
+			return response.data;
+		} catch (error) {
+			console.error('Error fetching directions:', error.message);
+			return null;
+		}
+	};
+	
+	const handleOnClickGetDirections = async (marker) => {
+		const directions = await getDirections(marker);
+
+		if (directions && directions.routes && directions.routes.length > 0) {
+			const route = directions.routes[0].geometry.coordinates;
+			setRoute(route);
 	}
 	
   return (
     <div>
       {isActive && (
         <div className="popup">
-          <button onClick={getDirections}>Show path</button>
+          <button onClick={async () => await handleOnClickGetDirections(marker)}>Show path</button>
         </div>
       )}
       <div
         className="custom-marker"
         style={isActive ? markerStyle : defaultStyle}
-        onClick={() => onClick(title)}
+        onClick={() => onClick(marker)}
       >
         <img src={icon} alt="quest icon" style={iconStyle} />
-        <p>{title}</p>
+        <p>{marker.title}</p>
       </div>
     </div>
   );
