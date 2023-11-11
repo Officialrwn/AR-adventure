@@ -12,7 +12,6 @@ export const ViewProvider = ({ children }) => {
     zoom: 12,
   };
   const [menuOpen, setMenuOpen] = useState(false);
-  const [viewingQuests, setViewingQuests] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [selectedLocation, setSelectedLocation] = useState(null);
   const [activeMarker, setActiveMarker] = useState(null);
@@ -22,6 +21,7 @@ export const ViewProvider = ({ children }) => {
   const [selectedQuest, setSelectedQuest] = useState(null);
   const [isPopupVisible, setIsPopupVisible] = useState(false);
   const [loggedIn, setLoggedIn] = useState(false);
+  const [panelView, setPanelView] = useState(null);
 
   const resetQuestsView = () => {
     setSelectedCategory(null);
@@ -31,7 +31,7 @@ export const ViewProvider = ({ children }) => {
   useEffect(() => {
     if (selectedLocation) {
       setSelectedCategory("locationBound");
-      setViewingQuests(true);
+      setPanelView("quests");
       setMenuOpen(true);
     }
   }, [selectedLocation]);
@@ -40,8 +40,6 @@ export const ViewProvider = ({ children }) => {
     defaultViewPort,
     menuOpen,
     setMenuOpen,
-    viewingQuests,
-    setViewingQuests,
     selectedCategory,
     setSelectedCategory,
     selectedLocation,
@@ -59,8 +57,10 @@ export const ViewProvider = ({ children }) => {
     setSelectedQuest,
     isPopupVisible,
     setIsPopupVisible,
-    loggedIn, 
-    setLoggedIn
+    loggedIn,
+    setLoggedIn,
+    panelView,
+    setPanelView,
   };
 
   return <ViewContext.Provider value={value}>{children}</ViewContext.Provider>;

@@ -5,14 +5,13 @@ import CustomMarker from "../../components/CustomMarker/CustomMarker";
 import "mapbox-gl/dist/mapbox-gl.css";
 import "./index.css";
 import { useView } from "../../contexts/ViewContext";
-import hero from "../../assets/hero.png";
+import hero from "../../assets/hero-1.png";
 import MainPanel from "../../components/MainPanel/MainPanel";
 import { useOnClickOutside } from "../../hooks/useOnClickOutside";
 import QuestPopup from "../../components/QuestPopup/QuestPopup";
 
 const MapPage = () => {
   const {
-    setViewingQuests,
     setMenuOpen,
     activeMarker,
     setActiveMarker,
@@ -27,6 +26,7 @@ const MapPage = () => {
     isPopupVisible,
     setIsPopupVisible,
     selectedQuest,
+    setPanelView,
   } = useView();
   const mainPanelRef = useRef(null);
   const markerRefs = useRef([]);
@@ -74,7 +74,7 @@ const MapPage = () => {
 
     setViewport(defaultViewPort);
     setMenuOpen(false);
-    setViewingQuests(false);
+    setPanelView(null);
     resetQuestsView();
     setActiveMarker(null);
   });
@@ -98,7 +98,7 @@ const MapPage = () => {
     setActiveMarker(prevActiveMarker);
 
     if (activeMarker) {
-      setViewingQuests(false);
+      setPanelView(null);
       setMenuOpen(false);
       setSelectedLocation(null);
     }

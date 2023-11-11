@@ -6,31 +6,31 @@ import Menu from "../Menu/Menu";
 import Quests from "../Quests/Quests"; // You need to create this component
 import { StyledMainPanel } from "./MainPanel.styled";
 import { useView } from "../../contexts/ViewContext";
+import Hero from "../Hero/Hero";
 
 const MainPanel = React.forwardRef((props, ref) => {
-  const { menuOpen, setMenuOpen, viewingQuests, setViewingQuests } = useView();
-
-  const handleQuestClick = () => {
-    setViewingQuests(true);
-  };
-
-  const handleBackClick = () => {
-    setViewingQuests(false);
-  };
+  const { menuOpen, setMenuOpen, panelView, setPanelView } = useView();
 
   return (
     <div ref={ref}>
-      {viewingQuests ? (
-        <BackIcon onClick={handleBackClick} />
-      ) : (
-        <BurgerIcon open={menuOpen} setOpen={setMenuOpen} />
+      {!menuOpen && (
+        <BurgerIcon
+          open={menuOpen}
+          setOpen={setMenuOpen}
+          onClick={() => setPanelView("menu")}
+        />
       )}
+      {menuOpen && panelView !== "menu" && (
+        <BackIcon onClick={() => setPanelView("menu")} />
+      )}
+      {menuOpen && panelView === "menu" && (
+        <BackIcon onClick={() => setMenuOpen(false)} />
+      )}
+
       <StyledMainPanel open={menuOpen}>
-        {viewingQuests ? (
-          <Quests />
-        ) : (
-          <Menu open={menuOpen} onQuestClick={handleQuestClick} />
-        )}
+        {panelView === "quests" && <Quests />}
+        {panelView === "hero" && <Hero />}
+        {panelView === "menu" && <Menu open={menuOpen} />}
       </StyledMainPanel>
     </div>
   );
