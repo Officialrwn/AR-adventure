@@ -26,12 +26,15 @@ const CustomMarker = ({ isActive, title, onClick }) => {
     textShadow: "2px 0 0 #000000", // Added white text shadow for visibility
   };
 
+	const getDirections = () => {
+		console.log("path");
+	}
+	
   return (
     <div>
       {isActive && (
         <div className="popup">
-          <button>View quest</button>
-          <button>Get directions to quest</button>
+          <button onClick={getDirections}>Show path</button>
         </div>
       )}
       <div

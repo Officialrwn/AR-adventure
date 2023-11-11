@@ -81,7 +81,7 @@ const MapPage = () => {
             <img
               src={hero}
               alt="hero"
-              style={{ width: "20px", height: "20px" }}
+              style={{ width: "30px", height: "30px" }}
             />
           </Marker>
         )}
