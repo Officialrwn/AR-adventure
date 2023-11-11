@@ -23,10 +23,16 @@ const CustomMarker = ({ isActive, title, onClick }) => {
 	}
 
   return (
-    <div className="custom-marker" style={ isActive ? markerStyle : defaultStyle } onClick={() => onClick(title)}>
-      <img src={icon} alt="quest icon" style={iconStyle} />
-      <p>{title} Quest</p>
-    </div>
+		<div>
+			{ isActive && <div className="popup">
+				<button>View quest</button>
+				<button>Get directions to quest</button>
+			</div> }
+			<div className="custom-marker" style={ isActive ? markerStyle : defaultStyle } onClick={() => onClick(title)}>
+				<img src={icon} alt="quest icon" style={iconStyle} />
+				<p>{title} Quest</p>
+			</div>
+		</div>
   );
 };
 
