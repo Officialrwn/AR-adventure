@@ -17,6 +17,8 @@ const Quests = () => {
     setSelectedLocation,
     setSelectedQuest,
     setIsPopupVisible,
+    setViewport,
+    defaultViewPort,
   } = useView();
 
   const handleQuestClick = (quest) => {
@@ -25,6 +27,7 @@ const Quests = () => {
   };
 
   const toggleCategory = (category) => {
+    setViewport(defaultViewPort);
     setSelectedCategory(selectedCategory === category ? null : category);
     // Reset selectedLocation when switching categories or re-toggling the same category
     setSelectedLocation(null);

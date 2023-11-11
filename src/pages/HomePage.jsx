@@ -1,17 +1,11 @@
-import { Link } from "react-router-dom";
+import { useView } from "../contexts/ViewContext";
+import LoginPage from "./LoginPage/LoginPage";
+import MapPage from "./MapPage/MapPage";
 
 const HomePage = () => {
-  return (
-    <div>
-      <h1>Home Page</h1>
-      <nav>
-        <Link to="/">Home</Link> {/* Link to Home Page */}
-        <Link to="/map">Map</Link> {/* Link to Map Page */}
-        <Link to="/character">Character</Link> {/* Link to Character Page */}
-      </nav>
-      {/* Other content of your HomePage */}
-    </div>
-  );
+  const { loggedIn } = useView();
+
+  return <div>{loggedIn ? <MapPage /> : <LoginPage />}</div>;
 };
 
 export default HomePage;

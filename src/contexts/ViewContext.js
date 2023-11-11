@@ -21,6 +21,7 @@ export const ViewProvider = ({ children }) => {
   const [route, setRoute] = useState(null);
   const [selectedQuest, setSelectedQuest] = useState(null);
   const [isPopupVisible, setIsPopupVisible] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(false);
 
   const resetQuestsView = () => {
     setSelectedCategory(null);
@@ -58,6 +59,8 @@ export const ViewProvider = ({ children }) => {
     setSelectedQuest,
     isPopupVisible,
     setIsPopupVisible,
+    loggedIn, 
+    setLoggedIn
   };
 
   return <ViewContext.Provider value={value}>{children}</ViewContext.Provider>;
