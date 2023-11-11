@@ -12,7 +12,10 @@ const MainPanel = () => {
   const [viewingQuests, setViewingQuests] = useState(false);
   const node = useRef();
 
-  useOnClickOutside(node, () => setOpen(false));
+  useOnClickOutside(node, () => {
+    setOpen(false);
+    setViewingQuests(false);
+  });
 
   const handleQuestClick = () => {
     setViewingQuests(true);
