@@ -17,9 +17,11 @@ export const ViewProvider = ({ children }) => {
   const [selectedLocation, setSelectedLocation] = useState(null);
   const [activeMarker, setActiveMarker] = useState(null);
   const [viewport, setViewport] = useState(defaultViewPort);
-	const [userLocation, setUserLocation] = useState(null);
-	const [route, setRoute] = useState(null);
-	
+  const [userLocation, setUserLocation] = useState(null);
+  const [route, setRoute] = useState(null);
+  const [selectedQuest, setSelectedQuest] = useState(null);
+  const [isPopupVisible, setIsPopupVisible] = useState(false);
+
   const resetQuestsView = () => {
     setSelectedCategory(null);
     setSelectedLocation(null);
@@ -48,10 +50,14 @@ export const ViewProvider = ({ children }) => {
     viewport,
     setViewport,
     resetQuestsView,
-		userLocation,
-		setUserLocation,
-		setRoute,
-		route,
+    userLocation,
+    setUserLocation,
+    setRoute,
+    route,
+    selectedQuest,
+    setSelectedQuest,
+    isPopupVisible,
+    setIsPopupVisible,
   };
 
   return <ViewContext.Provider value={value}>{children}</ViewContext.Provider>;

@@ -8,6 +8,7 @@ import { useView } from "../../contexts/ViewContext";
 import hero from "../../assets/hero.png";
 import MainPanel from "../../components/MainPanel/MainPanel";
 import { useOnClickOutside } from "../../hooks/useOnClickOutside";
+import QuestPopup from "../../components/QuestPopup/QuestPopup";
 
 const MapPage = () => {
   const {
@@ -23,9 +24,14 @@ const MapPage = () => {
     userLocation,
     setUserLocation,
     route,
+    isPopupVisible,
+    setIsPopupVisible,
+    selectedQuest,
   } = useView();
   const mainPanelRef = useRef(null);
   const markerRefs = useRef([]);
+  const popupRef = useRef(null);
+
   const defaultUserLocation = {
     latitude: 60.16213071353617,
     longitude: 24.905526255182103,
@@ -60,7 +66,7 @@ const MapPage = () => {
   }, [markers]);
 
   // Combine refs
-  const allRefs = [mainPanelRef, ...markerRefs.current];
+  const allRefs = [popupRef, mainPanelRef, ...markerRefs.current];
 
   useOnClickOutside(allRefs, () => {
     console.log("Clicked outside of MainPanel and markers");
@@ -102,7 +108,16 @@ const MapPage = () => {
 
   return (
     <>
+      {isPopupVisible && (
+        <QuestPopup
+          ref={popupRef}
+          quest={selectedQuest}
+          onClose={() => setIsPopupVisible(false)}
+        />
+      )}
+
       <MainPanel ref={mainPanelRef} />
+
       <div className="map">
         <ReactMapGL
           {...viewport}
