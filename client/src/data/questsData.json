@@ -1,0 +1,10 @@
+{
+  "locationFreeQuests": [
+    "Find the ancient scroll",
+    "Gather 10 mystical stones"
+  ],
+  "locationBoundQuests": {
+    "Enchanted Forest": ["Defeat the forest trolls", "Collect rare herbs"],
+    "Mystic Mountains": ["Seek the wise hermit", "Retrieve the crystal orb"]
+  }
+}
