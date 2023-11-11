@@ -6,14 +6,15 @@ import Menu from "../Menu/Menu";
 import Quests from "../Quests/Quests"; // You need to create this component
 import { useOnClickOutside } from "../../hooks/useOnClickOutside";
 import { StyledMainPanel } from "./MainPanel.styled";
+import { useView } from "../../contexts/ViewContext";
 
 const MainPanel = () => {
-  const [open, setOpen] = useState(false);
-  const [viewingQuests, setViewingQuests] = useState(false);
+  const { menuOpen, setMenuOpen, viewingQuests, setViewingQuests } = useView();
+
   const node = useRef();
 
   useOnClickOutside(node, () => {
-    setOpen(false);
+    setMenuOpen(false);
     setViewingQuests(false);
   });
 
@@ -30,13 +31,13 @@ const MainPanel = () => {
       {viewingQuests ? (
         <BackIcon onClick={handleBackClick} />
       ) : (
-        <BurgerIcon open={open} setOpen={setOpen} />
+        <BurgerIcon open={menuOpen} setOpen={setMenuOpen} />
       )}
-      <StyledMainPanel open={open}>
+      <StyledMainPanel open={menuOpen}>
         {viewingQuests ? (
           <Quests />
         ) : (
-          <Menu open={open} onQuestClick={handleQuestClick} />
+          <Menu open={menuOpen} onQuestClick={handleQuestClick} />
         )}
       </StyledMainPanel>
     </div>
