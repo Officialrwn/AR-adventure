@@ -20,16 +20,19 @@ const MapPage = () => {
     setViewport,
     defaultViewPort,
     resetQuestsView,
-		userLocation,
-		setUserLocation,
-		route
+    userLocation,
+    setUserLocation,
+    route,
   } = useView();
   const mainPanelRef = useRef(null);
   const markerRefs = useRef([]);
-	const defaultUserLocation = { latitude: 60.16213071353617, longitude: 24.905526255182103 };
+  const defaultUserLocation = {
+    latitude: 60.16213071353617,
+    longitude: 24.905526255182103,
+  };
 
   useEffect(() => {
-		setUserLocation(defaultUserLocation);
+    setUserLocation(defaultUserLocation);
     navigator.geolocation.getCurrentPosition(
       (position) => {
         const { latitude, longitude } = position.coords;
@@ -88,9 +91,9 @@ const MapPage = () => {
     setViewport(prevViewPort);
     setActiveMarker(prevActiveMarker);
 
-    if (prevActiveMarker) {
-      setViewingQuests(true);
-      setMenuOpen(true);
+    if (activeMarker) {
+      setViewingQuests(false);
+      setMenuOpen(false);
     }
   };
 
