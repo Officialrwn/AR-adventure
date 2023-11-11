@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/static/css/main.aadcab4f.css",
+    "main.js": "/static/js/main.ce5f832e.js",
+    "static/js/483.190e26f3.chunk.js": "/static/js/483.190e26f3.chunk.js",
+    "static/media/questicon.png": "/static/media/questicon.33b2746b72cb2db4876e.png",
+    "index.html": "/index.html",
+    "main.aadcab4f.css.map": "/static/css/main.aadcab4f.css.map",
+    "main.ce5f832e.js.map": "/static/js/main.ce5f832e.js.map",
+    "483.190e26f3.chunk.js.map": "/static/js/483.190e26f3.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.aadcab4f.css",
+    "static/js/main.ce5f832e.js"
+  ]
+}
