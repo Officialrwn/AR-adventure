@@ -4,6 +4,7 @@
       "id": "1",
       "title": "Challenge-a-Friend Fiesta",
       "difficulty": "Epic",
+      "completed": 0,
       "description": "Challenge a friend to a different fitness activity each day and compare results at the end of the week.",
       "reward": {
         "gold": 150,
@@ -14,6 +15,7 @@
       "id": "2",
       "title": "Morning movement",
       "difficulty": "Normal",
+      "completed": 0,
       "description": "Complete a 20-minute morning workout routine. Include exercises like jumping jacks, squats, and high knees.",
       "reward": {
         "gold": 50,
@@ -24,6 +26,7 @@
       "id": "3",
       "title": "Adventure Photographer Challenge",
       "difficulty": "Epic",
+      "completed": 0,
       "description": "Capture and share five creative exercise-related photos from different locations during the week.",
       "reward": {
         "gold": 180,
@@ -34,6 +37,7 @@
       "id": "4",
       "title": "Stairs Sprint",
       "difficulty": "Normal",
+      "completed": 0,
       "description": "Opt for the stairs instead of the elevator. Incorporate a brief stair workout at home or work each day.",
       "reward": {
         "gold": 40,
@@ -44,6 +48,7 @@
       "id": "5",
       "title": "Jump Rope Jamboree",
       "difficulty": "Normal",
+      "completed": 0,
       "description": "Jump rope for 15 minutes, incorporating different tricks.",
       "reward": {
         "gold": 60,
@@ -54,6 +59,7 @@
       "id": "6",
       "title": "Jump Rope Expert",
       "difficulty": "Epic",
+      "completed": 0,
       "description": "Jump 2k times/day in a week.",
       "reward": {
         "gold": 200,
@@ -64,6 +70,7 @@
       "id": "7",
       "title": "Jumping Jackpot",
       "difficulty": "Normal",
+      "completed": 0,
       "description": "Do as many jumping jacks as you can in 5 minutes; better defeat yourself in the past.",
       "reward": {
         "gold": 55,
@@ -74,6 +81,7 @@
       "id": "8",
       "title": "Super Sports Spectacle",
       "difficulty": "Epic",
+      "completed": 0,
       "description": "Try a different sport or physical activity each day, from basketball to rock climbing.",
       "reward": {
         "gold": 220,
@@ -84,6 +92,7 @@
       "id": "9",
       "title": "Office Break Revitalizer",
       "difficulty": "Normal",
+      "completed": 0,
       "description": "Incorporate short bursts of activity during work breaks. Stretch, do a quick yoga session, or take a brisk walk outside, even chair squats. desk push up.",
       "reward": {
         "gold": 45,
@@ -94,6 +103,7 @@
       "id": "10",
       "title": "Post-Work Unwind",
       "difficulty": "Normal",
+      "completed": 0,
       "description": "Wind down after work with a 30-minute relaxation workout, such as yoga or a calming stretch routine.",
       "reward": {
         "gold": 65,
@@ -104,6 +114,7 @@
       "id": "11",
       "title": "Commute Cardio Challenge",
       "difficulty": "Normal",
+      "completed": 0,
       "description": "Integrate exercise into your daily commute. Choose an active mode of transportation, like biking or walking, for at least part of the journey.",
       "reward": {
         "gold": 70,
@@ -114,6 +125,7 @@
       "id": "12",
       "title": "Tech Detox Day",
       "difficulty": "Normal",
+      "completed": 0,
       "description": "Designate one day a week for a tech detox. Spend at least 60 minutes doing physical activities without electronic devices.",
       "reward": {
         "gold": 80,
@@ -124,6 +136,7 @@
       "id": "13",
       "title": "Chores & Calisthenics Challenge",
       "difficulty": "Normal",
+      "completed": 0,
       "description": "Turn household chores into a workout. Perform squats while doing laundry or lunges while vacuuming.",
       "reward": {
         "gold": 90,
@@ -162,6 +175,42 @@
     }
   ],
   "locationBoundQuests": {
+    "Huawei Health Lab": {
+      "longitude": "24.921600",
+      "latitude": "60.164500",
+      "quests": [
+        {
+          "id": "31",
+          "type": "Normal",
+          "title": "Wellness Walk Challenge",
+          "description": "Take a 45-minute walk around the neighborhood of Huawei Health Lab, noting at least 5 unique landmarks or natural features. Share your experience with a photo or a short story.",
+          "reward": {
+            "gold": 50,
+            "exp": 40
+          }
+        },
+        {
+          "id": "32",
+          "type": "Normal",
+          "title": "Tech Trailblazer",
+          "description": "Visit three technology landmarks in Helsinki, including the Huawei Health Lab. Document each visit with a photo and a brief note about what you learned.",
+          "reward": {
+            "gold": 70,
+            "exp": 45
+          }
+        },
+        {
+          "id": "33",
+          "type": "Epic",
+          "title": "Innovative Explorer",
+          "description": "Create a short video tour of the Huawei Health Lab, highlighting its contributions to health and technology. Share the video on social media with a hashtag #HuaweiHealthInnovation.",
+          "reward": {
+            "gold": 100,
+            "exp": 60
+          }
+        }
+      ]
+    },
     "Kaisaniemi Park": {
       "longitude": "24.9448299407959",
       "latitude": "60.17535400390625",
