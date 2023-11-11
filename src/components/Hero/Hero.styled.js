@@ -38,3 +38,19 @@ export const HeroStats = styled.div`
     color: #555; // Slightly darker color for bold text
   }
 `;
+
+export const LevelBar = styled.div`
+  background-color: #e0e0e0; // Grey background for the full bar
+  border-radius: 10px;
+  width: 100%; // Full width of the container
+  height: 20px;
+  margin-top: 10px;
+`;
+
+export const LevelProgress = styled.div`
+  background-color: #4caf50; // Green color for completed progress
+  width: ${(props) => props.width}%;
+  height: 100%;
+  border-radius: 10px 0 0 10px; // Rounded corners only on the left side
+  transition: width 0.3s ease-in-out;
+`;

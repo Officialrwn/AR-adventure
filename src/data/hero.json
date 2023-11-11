@@ -1,8 +1,9 @@
 {
   "name": "TheLegend27",
   "level": 27,
-  "exp": 1000,
+  "experience": 1000,
+  "maxExperience": 1800,
   "gold": 9000,
-  "questsCompleted": 5,
+  "questsCompleted": 10,
   "icon": "1"
 }
