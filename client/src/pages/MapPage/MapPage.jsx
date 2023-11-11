@@ -12,12 +12,15 @@ const MapPage = () => {
     zoom: 12,
   });
 
+  // const mapStyle = "mapbox://styles/leighhalliday/cjufmjn1r2kic1fl9wxg7u1l4";
+  const mapStyle = "mapbox://styles/mapbox/streets-v11";
+
   return (
     <div className="map">
       <ReactMapGL
         {...viewport}
         mapboxAccessToken={process.env.REACT_APP_MAPBOX_API_KEY}
-        mapStyle="mapbox://styles/mapbox/streets-v11"
+        mapStyle={mapStyle}
         onViewportChange={(newViewport) => setViewport(newViewport)}
         doubleClickZoom={true}
       >

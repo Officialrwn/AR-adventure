@@ -28,9 +28,9 @@ export const StyledBurger = styled.button`
     transform: translate(-50%, -50%);
     width: 4rem; /* Increased size of the circle */
     height: 4rem; /* Increased size of the circle */
-    background: #fed0bb; /* Change to your desired color */
+    background: #f2f2f2; /* Change to your desired color */
     border-radius: 50%;
-    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2); /* Adjust shadow as needed */
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5); /* Darker and larger shadow */
     z-index: -1;
   }
 
