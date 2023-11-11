@@ -22,7 +22,7 @@ const MapPage = () => {
   };
 
   // const mapStyle = "mapbox://styles/leighhalliday/cjufmjn1r2kic1fl9wxg7u1l4";
-  const mapStyle = "mapbox://styles/mapbox/streets-v11";
+  const mapStyle = "mapbox://styles/mapbox/dark-v10";
 
   return (
     <div className="map">
