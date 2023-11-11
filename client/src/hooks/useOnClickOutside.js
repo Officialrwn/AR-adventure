@@ -1,17 +1,20 @@
 // hooks.js
 import { useEffect } from "react";
 
-export const useOnClickOutside = (ref, handler) => {
+export const useOnClickOutside = (refs, handler) => {
   useEffect(() => {
     const listener = (event) => {
-      if (!ref.current || ref.current.contains(event.target)) {
+      if (
+        refs.some((ref) => ref.current && ref.current.contains(event.target))
+      ) {
         return;
       }
       handler(event);
     };
+
     document.addEventListener("mousedown", listener);
     return () => {
       document.removeEventListener("mousedown", listener);
     };
-  }, [ref, handler]);
+  }, [refs, handler]); // Depend on refs and handler
 };

@@ -8,27 +8,8 @@ import { useOnClickOutside } from "../../hooks/useOnClickOutside";
 import { StyledMainPanel } from "./MainPanel.styled";
 import { useView } from "../../contexts/ViewContext";
 
-const MainPanel = () => {
-  const {
-    defaultViewPort,
-    menuOpen,
-    setMenuOpen,
-    viewingQuests,
-    setViewingQuests,
-    setActiveMarker,
-    setViewport,
-    resetQuestsView,
-  } = useView();
-
-  const node = useRef();
-
-  useOnClickOutside(node, () => {
-    setViewport(defaultViewPort);
-    setMenuOpen(false);
-    setViewingQuests(false);
-    resetQuestsView();
-    setActiveMarker(null);
-  });
+const MainPanel = React.forwardRef((props, ref) => {
+  const { menuOpen, setMenuOpen, viewingQuests, setViewingQuests } = useView();
 
   const handleQuestClick = () => {
     setViewingQuests(true);
@@ -39,7 +20,7 @@ const MainPanel = () => {
   };
 
   return (
-    <div ref={node}>
+    <div ref={ref}>
       {viewingQuests ? (
         <BackIcon onClick={handleBackClick} />
       ) : (
@@ -54,6 +35,6 @@ const MainPanel = () => {
       </StyledMainPanel>
     </div>
   );
-};
+});
 
 export default MainPanel;

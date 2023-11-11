@@ -12,7 +12,7 @@ function App() {
       <ViewProvider>
         <>
           <GlobalStyles />
-          <MainPanel />
+          {/* <MainPanel /> */}
           <MapPage />
         </>
       </ViewProvider>

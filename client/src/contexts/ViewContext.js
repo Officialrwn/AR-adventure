@@ -9,7 +9,7 @@ export const ViewProvider = ({ children }) => {
     longitude: 24.93737401348124,
     width: "100vw",
     height: "100vh",
-    zoom: 13,
+    zoom: 12,
   };
   const [menuOpen, setMenuOpen] = useState(false);
   const [viewingQuests, setViewingQuests] = useState(false);
