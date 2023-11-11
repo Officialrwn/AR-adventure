@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import './index.css'
 import ReactMapGL from 'react-map-gl'
+import 'mapbox-gl/dist/mapbox-gl.css';
 
 const MapPage = () => {
 	const [viewport, setViewport] = useState({
@@ -8,19 +9,19 @@ const MapPage = () => {
 		longitute: 24.9427473,
 		width: "100vw",
 		height: "100vh",
-		zoom: 10,
+		zoom: 5,
 	});
 
 	return (
-		<div className="main">
-			<div className="header">
-				<h1>Map Page</h1>
-			</div>
-			<div className="map">
-			<ReactMapGL {...viewport} mapboxAccessToken={process.env.REACT_APP_MAPBOX_API_KEY}>
+		<div className="map">
+			<ReactMapGL
+				{...viewport}
+				mapboxAccessToken={process.env.REACT_APP_MAPBOX_API_KEY}
+				mapStyle="mapbox://styles/mapbox/streets-v11"
+				// onViewportChange={(newViewport) => setViewport(newViewport)}
+			>
 				MAP
 			</ReactMapGL>
-			</div>
 		</div>
 	)
 }
