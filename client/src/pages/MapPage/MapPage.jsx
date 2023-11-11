@@ -21,22 +21,25 @@ const MapPage = () => {
   const markers = parks;
 
   const handleOnMarkerClick = (marker) => {
-    setViewingQuests(true);
-    setMenuOpen(true);
-
     console.log(marker.title);
-		const newViewPort = {
-			latitude: marker.latitude,
+    const newViewPort = {
+      latitude: marker.latitude,
       longitude: marker.longitude - 0.01,
       zoom: 14,
-			transition: {
-				duration: 5000
-			}
-		}
-		const prevActiveMarker = activeMarker === marker.title ? null : marker.title;
-		const prevViewPort = prevActiveMarker ? newViewPort : defaultViewPort;
-		setViewport(prevViewPort);
-		setActiveMarker(prevActiveMarker);
+      transition: {
+        duration: 5000,
+      },
+    };
+    const prevActiveMarker =
+      activeMarker === marker.title ? null : marker.title;
+    const prevViewPort = prevActiveMarker ? newViewPort : defaultViewPort;
+    setViewport(prevViewPort);
+    setActiveMarker(prevActiveMarker);
+
+    if (prevActiveMarker) {
+      setViewingQuests(true);
+      setMenuOpen(true);
+    }
   };
 
   // const mapStyle = "mapbox://styles/leighhalliday/cjufmjn1r2kic1fl9wxg7u1l4";
