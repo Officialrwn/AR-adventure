@@ -1,16 +1,25 @@
-import React, { useRef, useEffect, useState } from "react";
-import "./index.css";
-import ReactMapGL from "react-map-gl";
-import "mapbox-gl/dist/mapbox-gl.css";
+import React, { useState } from 'react';
+import './index.css';
+import ReactMapGL, { Marker, Popup } from 'react-map-gl';
+import 'mapbox-gl/dist/mapbox-gl.css';
+import CustomMarker from '../../components/CustomMarker/CustomMarker';
+import { parks } from '../../data/parks';
 
 const MapPage = () => {
+  const [hoveredMarker, setHoveredMarker] = useState(null);
   const [viewport, setViewport] = useState({
     latitude: 60.17000701866055,
     longitude: 24.93737401348124,
-    width: "100vw",
-    height: "100vh",
+    width: '100vw',
+    height: '100vh',
     zoom: 12,
   });
+  const markers = parks;
+
+  const handleOnMarkerClick = (marker) => {
+    console.log(marker.title);
+    setHoveredMarker(marker);
+  };
 
   return (
     <div className="map">
@@ -21,7 +30,27 @@ const MapPage = () => {
         onViewportChange={(newViewport) => setViewport(newViewport)}
         doubleClickZoom={true}
       >
-        MAP
+        {markers.map((marker) => (
+          <Marker
+            key={marker.title}
+            latitude={marker.latitude}
+            longitude={marker.longitude}
+            offsetLeft={-20}
+            offsetTop={-10}
+          >
+            <CustomMarker onClick={() => handleOnMarkerClick(marker)} />
+          </Marker>
+        ))}
+        {hoveredMarker && (
+          <Popup
+            latitude={hoveredMarker.latitude}
+            longitude={hoveredMarker.longitude}
+            onClose={() => setHoveredMarker(null)}
+						style={{ zIndex: 1000 }}
+          >
+            <div>{hoveredMarker.title}</div>
+          </Popup>
+        )}
       </ReactMapGL>
     </div>
   );
