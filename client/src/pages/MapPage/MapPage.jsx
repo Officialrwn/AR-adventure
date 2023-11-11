@@ -1,24 +1,33 @@
 import React, { useState } from 'react';
-import ReactMapGL, { Marker, Popup } from 'react-map-gl';
+import ReactMapGL, { Marker } from 'react-map-gl';
 import { parks } from '../../data/parks';
 import CustomMarker from '../../components/CustomMarker/CustomMarker';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import './index.css';
 
 const MapPage = () => {
-  const [hoveredMarker, setHoveredMarker] = useState(null);
-  const [viewport, setViewport] = useState({
+	const [activeMarker, setActiveMarker] = useState(null);
+	const defaultViewPort = {
     latitude: 60.17000701866055,
     longitude: 24.93737401348124,
     width: '100vw',
     height: '100vh',
     zoom: 12,
-  });
+  };
+  const [viewport, setViewport] = useState(defaultViewPort);
   const markers = parks;
 
   const handleOnMarkerClick = (marker) => {
     console.log(marker.title);
-    setHoveredMarker(marker);
+		const newViewPort = {
+			latitude: marker.latitude,
+      longitude: marker.longitude,
+      zoom: 14,
+		}
+		const prevActiveMarker = activeMarker === marker.title ? null : marker.title;
+		const prevViewPort = prevActiveMarker ? newViewPort : defaultViewPort;
+		setViewport(prevViewPort);
+		setActiveMarker(prevActiveMarker);
   };
 
   // const mapStyle = "mapbox://styles/leighhalliday/cjufmjn1r2kic1fl9wxg7u1l4";
@@ -41,18 +50,9 @@ const MapPage = () => {
             offsetLeft={-20}
             offsetTop={-10}
           >
-            <CustomMarker title={marker.title} onClick={() => handleOnMarkerClick(marker)} />
+            <CustomMarker isActive={activeMarker === marker.title} title={marker.title} onClick={() => handleOnMarkerClick(marker)} />
           </Marker>
         ))}
-        {hoveredMarker && (
-          <Popup
-            latitude={hoveredMarker.latitude}
-            longitude={hoveredMarker.longitude}
-            onClose={() => setHoveredMarker(null)}
-          >
-            <div>{hoveredMarker.title}</div>
-          </Popup>
-        )}
       </ReactMapGL>
     </div>
   );
