@@ -19,11 +19,26 @@ export const StyledBurger = styled.button`
     outline: none;
   }
 
+  /* Colored circle behind the icon */
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 4rem; /* Increased size of the circle */
+    height: 4rem; /* Increased size of the circle */
+    background: #fed0bb; /* Change to your desired color */
+    border-radius: 50%;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2); /* Adjust shadow as needed */
+    z-index: -1;
+  }
+
   div {
     width: 2rem;
     height: 0.25rem;
     background: ${({ theme, open }) =>
-      open ? theme.primaryDark : theme.primaryLight};
+      open ? theme.primaryDark : theme.primaryDark};
     border-radius: 10px;
     transition: all 0.3s linear;
     position: relative;
@@ -35,7 +50,7 @@ export const StyledBurger = styled.button`
 
     :nth-child(2) {
       opacity: ${({ open }) => (open ? "0" : "1")};
-      transform: ${({ open }) => (open ? "translateX(20px)" : "translateX(0)")};
+      /* Removed the transform for the second line */
     }
 
     :nth-child(3) {
