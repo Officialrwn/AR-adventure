@@ -10,13 +10,13 @@ const CustomMarker = ({ isActive, title, onClick }) => {
 
   const markerStyle = {
     border: "2px solid green",
-    backgroundColor: "#000000",
-    color: "#F8C537", // Changed text color to #F8C537
+    backgroundColor: "#F8C537",
+    color: "#000000", // Changed text color to #F8C537
     padding: "5px",
     borderRadius: "5px",
     cursor: "pointer",
-    fontSize: "20px", // Increased font size, adjust as needed
-    textShadow: "0 2px 4px #000000", // Added text shadow for better visibility
+    fontSize: "24px", // Increased font size, adjust as needed
+    textShadow: "0 0 0 #000000", // Added text shadow for better visibility
   };
 
   const defaultStyle = {
