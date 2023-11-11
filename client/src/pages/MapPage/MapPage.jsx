@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import ReactMapGL, { Marker, Popup } from 'react-map-gl';
+import ReactMapGL, { Marker } from 'react-map-gl';
 import { parks } from '../../data/parks';
 import CustomMarker from '../../components/CustomMarker/CustomMarker';
 import 'mapbox-gl/dist/mapbox-gl.css';

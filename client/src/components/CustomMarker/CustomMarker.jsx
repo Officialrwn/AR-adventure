@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import icon from '../../assets/questicon.png';
 import './index.css';
 
