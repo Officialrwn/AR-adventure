@@ -7,7 +7,7 @@ export const QuestsContainer = styled.div`
 `;
 
 export const QuestItem = styled.div`
-  font-size: 1.5rem; // Adjust font size as needed
+  font-size: 1rem; // Adjust font size as needed
   text-transform: uppercase; // If your menu items are uppercase
   padding: 1rem 0;
   font-weight: bold;
