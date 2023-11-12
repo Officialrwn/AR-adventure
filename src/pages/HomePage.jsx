@@ -10,7 +10,13 @@ const HomePage = () => {
 
   return (
     <div>
-      <ToastContainer />
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        closeOnClick
+        pauseOnHover
+      />
       {showConfetti && <Confetti />}
       {!loggedIn ? <MapPage /> : <LoginPage />}
     </div>

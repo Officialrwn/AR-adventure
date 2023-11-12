@@ -3,3 +3,23 @@ body {
   width: 100vw;
   background-color: #ebe1d8;
 }
+
+/* Custom styles for react-toastify */
+.Toastify__toast-container {
+  width: 420px !important; /* Set the width of the toast container */
+}
+
+.Toastify__toast {
+  font-size: 1.2em; /* Increase the font size */
+  border-radius: 8px; /* Rounded corners */
+  background-color: #004d40; /* Background color */
+  color: #fff; /* Text color */
+}
+
+.Toastify__toast--success {
+  background-color: #4caf50; /* Success color */
+}
+
+.Toastify__toast-body > div:last-child {
+  padding: 0px 30px;
+}
