@@ -107,6 +107,7 @@ const MapPage = () => {
   };
 
   const updateQuestCompletion = (id) => {
+    setIsPopupVisible(false);
     setQuests((prevQuests) => {
       // Initialize updates with current quests
       let updatedLocationFreeQuests = prevQuests.locationFreeQuests;
