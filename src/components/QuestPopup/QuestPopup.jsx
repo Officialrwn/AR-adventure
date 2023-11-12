@@ -1,6 +1,7 @@
 import React from "react";
 import { PopupBackground, PopupContainer } from "./QuestPopup.styled"; // Adjust the import path as needed
 import { useView } from "../../contexts/ViewContext";
+import { toast } from "react-toastify";
 
 const QuestPopup = React.forwardRef(({ quest, onClose, onCompletion }, ref) => {
   const { startConfetti } = useView();
@@ -11,6 +12,11 @@ const QuestPopup = React.forwardRef(({ quest, onClose, onCompletion }, ref) => {
     if (quest.completed === 0) {
       onCompletion(quest.id);
       startConfetti();
+
+      // Show toast notification
+      toast.success(
+        `Congratulations! You've earned ${quest.reward.gold} Gold and ${quest.reward.exp} EXP!`
+      );
     }
   };
 
