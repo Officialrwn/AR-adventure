@@ -120,6 +120,11 @@ const MapPage = () => {
     }
   };
 
+  const handleOnUserMarkerClick = () => {
+    setMenuOpen(true);
+    setPanelView("menu");
+  };
+
   const updateQuestCompletion = (id) => {
     setIsPopupVisible(false);
     setQuests((prevQuests) => {
@@ -186,6 +191,7 @@ const MapPage = () => {
                 src={hero}
                 alt="hero"
                 style={{ width: "30px", height: "30px" }}
+                onClick={() => handleOnUserMarkerClick()}
               />
             </Marker>
           )}
