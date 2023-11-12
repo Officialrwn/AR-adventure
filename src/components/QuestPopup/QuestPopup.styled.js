@@ -19,7 +19,7 @@ export const PopupContainer = styled.div`
   border-radius: 15px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   width: 90%;
-  max-width: 600px;
+  max-width: 560px;
   text-align: left;
 
   div {
@@ -50,9 +50,14 @@ export const PopupContainer = styled.div`
     color: #4caf50;
   }
 
+  .buttons-container {
+    display: flex;
+    justify-content: space-between;
+  }
+
   button {
     background-color: #f8c537;
-    color: white;
+    color: #333;
     border: none;
     margin-top: 10px;
     padding: 12px 20px;
@@ -63,6 +68,15 @@ export const PopupContainer = styled.div`
 
     &:hover {
       background-color: #e6b530;
+    }
+
+    &.finish {
+      background-color: #4cb944;
+      color: white;
+    }
+
+    &.finish:hover {
+      background-color: #44a63d;
     }
   }
 `;

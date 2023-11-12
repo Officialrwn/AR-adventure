@@ -1,6 +1,5 @@
 // Quests.jsx
-import React, { useState } from "react";
-import questsData from "../../data/questsData.json"; // Ensure correct path
+import React from "react";
 import {
   LocationButton,
   SubLocationButton,
@@ -11,6 +10,7 @@ import { useView } from "../../contexts/ViewContext";
 
 const Quests = () => {
   const {
+    quests,
     selectedCategory,
     setSelectedCategory,
     selectedLocation,
@@ -47,7 +47,7 @@ const Quests = () => {
       </LocationButton>
       {selectedCategory === "locationFree" && (
         <QuestList>
-          {questsData.locationFreeQuests.map((quest, index) => (
+          {quests.locationFreeQuests.map((quest, index) => (
             <QuestListItem
               key={quest.id}
               onClick={() => handleQuestClick(quest)}
@@ -69,7 +69,7 @@ const Quests = () => {
       </LocationButton>
       {selectedCategory === "locationBound" && (
         <>
-          {Object.entries(questsData.locationBoundQuests).map(
+          {Object.entries(quests.locationBoundQuests).map(
             ([location, locationData], index) => (
               <div key={index}>
                 <SubLocationButton

@@ -12,6 +12,8 @@ import QuestPopup from "../../components/QuestPopup/QuestPopup";
 
 const MapPage = () => {
   const {
+    quests,
+    setQuests,
     setMenuOpen,
     activeMarker,
     setActiveMarker,
@@ -22,7 +24,7 @@ const MapPage = () => {
     resetQuestsView,
     userLocation,
     setUserLocation,
-    route,
+    selectedCategory,
     isPopupVisible,
     setIsPopupVisible,
     selectedQuest,
@@ -104,6 +106,37 @@ const MapPage = () => {
     }
   };
 
+  const updateQuestCompletion = (id) => {
+    setQuests((prevQuests) => {
+      // Initialize updates with current quests
+      let updatedLocationFreeQuests = prevQuests.locationFreeQuests;
+      let updatedLocationBoundQuests = prevQuests.locationBoundQuests;
+
+      if (selectedCategory === "locationFree") {
+        // Update for locationFreeQuests
+        updatedLocationFreeQuests = updatedLocationFreeQuests.map((quest) =>
+          quest.id === id ? { ...quest, completed: 1 } : quest
+        );
+      } else if (selectedCategory === "locationBound") {
+        // Update for locationBoundQuests
+        updatedLocationBoundQuests = Object.entries(
+          updatedLocationBoundQuests
+        ).reduce((acc, [location, data]) => {
+          const updatedQuests = data.quests.map((quest) =>
+            quest.id === id ? { ...quest, completed: 1 } : quest
+          );
+
+          return { ...acc, [location]: { ...data, quests: updatedQuests } };
+        }, {});
+      }
+
+      return {
+        locationFreeQuests: updatedLocationFreeQuests,
+        locationBoundQuests: updatedLocationBoundQuests,
+      };
+    });
+  };
+
   // const mapStyle = "mapbox://styles/leighhalliday/cjufmjn1r2kic1fl9wxg7u1l4";
   const mapStyle = "mapbox://styles/mapbox/dark-v10";
 
@@ -114,6 +147,7 @@ const MapPage = () => {
           ref={popupRef}
           quest={selectedQuest}
           onClose={() => setIsPopupVisible(false)}
+          onCompletion={updateQuestCompletion}
         />
       )}
 
