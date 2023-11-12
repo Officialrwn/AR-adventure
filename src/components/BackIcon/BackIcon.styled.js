@@ -14,7 +14,7 @@ export const StyledBackIcon = styled.button`
   border: none;
   cursor: pointer;
   padding: 0;
-  z-index: 10;
+  z-index: 3;
 
   &:hover::before {
     background-color: #f8c537;

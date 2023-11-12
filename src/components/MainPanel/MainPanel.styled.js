@@ -13,7 +13,7 @@ export const StyledMainPanel = styled.nav`
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 9;
+  z-index: 1;
   height: 100vh;
   max-height: 100vh;
   width: 500px;

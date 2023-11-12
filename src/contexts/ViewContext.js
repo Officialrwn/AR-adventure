@@ -26,10 +26,17 @@ export const ViewProvider = ({ children }) => {
   const [panelView, setPanelView] = useState(null);
   const [quests, setQuests] = useState(questsData);
   const [hero, setHero] = useState(heroData);
+  const [showConfetti, setShowConfetti] = useState(false);
 
   const resetQuestsView = () => {
     setSelectedCategory(null);
     setSelectedLocation(null);
+  };
+
+  // Function to start confetti
+  const startConfetti = () => {
+    setShowConfetti(true);
+    setTimeout(() => setShowConfetti(false), 5000); // Stop confetti after 3 seconds
   };
 
   useEffect(() => {
@@ -69,6 +76,9 @@ export const ViewProvider = ({ children }) => {
     setLoggedIn,
     panelView,
     setPanelView,
+    showConfetti,
+    setShowConfetti,
+    startConfetti,
   };
 
   return <ViewContext.Provider value={value}>{children}</ViewContext.Provider>;

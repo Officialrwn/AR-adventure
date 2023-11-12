@@ -1,12 +1,16 @@
 import React from "react";
 import { PopupBackground, PopupContainer } from "./QuestPopup.styled"; // Adjust the import path as needed
+import { useView } from "../../contexts/ViewContext";
 
 const QuestPopup = React.forwardRef(({ quest, onClose, onCompletion }, ref) => {
+  const { startConfetti } = useView();
+
   if (!quest) return null;
 
   const handleFinish = () => {
     if (quest.completed === 0) {
       onCompletion(quest.id);
+      startConfetti();
     }
   };
 
