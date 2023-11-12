@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import questsData from "../data/questsData.json";
+import heroData from "../data/hero.json";
 
 const ViewContext = createContext();
 export const useView = () => useContext(ViewContext);
@@ -24,6 +25,7 @@ export const ViewProvider = ({ children }) => {
   const [loggedIn, setLoggedIn] = useState(false);
   const [panelView, setPanelView] = useState(null);
   const [quests, setQuests] = useState(questsData);
+  const [hero, setHero] = useState(heroData);
 
   const resetQuestsView = () => {
     setSelectedCategory(null);
@@ -39,6 +41,8 @@ export const ViewProvider = ({ children }) => {
   }, [selectedLocation]);
 
   const value = {
+    hero,
+    setHero,
     quests,
     setQuests,
     defaultViewPort,
