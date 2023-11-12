@@ -81,6 +81,18 @@ const MapPage = () => {
     setActiveMarker(null);
   });
 
+  useEffect(() => {
+    if (activeMarker) {
+      const marker = markers.find((marker) => marker.title === activeMarker);
+      const newViewPort = {
+        latitude: marker.latitude,
+        longitude: marker.longitude - 0.02,
+        zoom: 14,
+      };
+      setViewport(newViewPort);
+    }
+  }, [activeMarker]);
+
   const handleOnMarkerClick = (marker) => {
     console.log(marker.title);
 

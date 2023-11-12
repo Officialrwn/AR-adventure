@@ -44,6 +44,7 @@ export const ViewProvider = ({ children }) => {
       setSelectedCategory("locationBound");
       setMenuOpen(true);
       setPanelView("quests");
+      setActiveMarker(selectedLocation);
     }
   }, [selectedLocation]);
 
