@@ -18,7 +18,7 @@ const HomePage = () => {
         pauseOnHover
       />
       {showConfetti && <Confetti />}
-      {!loggedIn ? <MapPage /> : <LoginPage />}
+      {loggedIn ? <MapPage /> : <LoginPage />}
     </div>
   );
 };
