@@ -74,7 +74,9 @@ const MapPage = () => {
     console.log("Clicked outside of MainPanel and markers");
     // Your logic for handling outside clicks
 
-    setViewport(defaultViewPort);
+    setViewport({
+      zoom: 12,
+    });
     setMenuOpen(false);
     setPanelView(null);
     resetQuestsView();
@@ -173,6 +175,7 @@ const MapPage = () => {
           mapStyle={mapStyle}
           onViewportChange={(newViewport) => setViewport(newViewport)}
           doubleClickZoom={true}
+          scrollZoom={true}
         >
           {userLocation && (
             <Marker
