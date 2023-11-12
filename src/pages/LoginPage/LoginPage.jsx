@@ -15,6 +15,7 @@ const LoginPage = () => {
 
     setTimeout(() => {
       setLoggedIn(true);
+      sessionStorage.setItem("loggedIn", true);
     }, 2000); // Adjust time to match your fade-out duration
   };
 

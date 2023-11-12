@@ -18,7 +18,11 @@ const HomePage = () => {
         pauseOnHover
       />
       {showConfetti && <Confetti />}
-      {loggedIn ? <MapPage /> : <LoginPage />}
+      {loggedIn || sessionStorage.getItem("loggedIn") === "true" ? (
+        <MapPage />
+      ) : (
+        <LoginPage />
+      )}
     </div>
   );
 };
