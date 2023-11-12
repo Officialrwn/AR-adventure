@@ -16,6 +16,10 @@ export const StyledBurgerIcon = styled.button`
   padding: 0;
   z-index: 10;
 
+  &:hover::before {
+    background-color: #f8c537;
+  }
+
   &:focus {
     outline: none;
   }
